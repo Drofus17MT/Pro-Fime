@@ -54,7 +54,7 @@ window.addEventListener("scroll", function () {
   const header = document.getElementById("header");
   const currentScroll = window.pageYOffset;
 
-  if (currentScroll > 46) {
+  if (currentScroll > 30) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");

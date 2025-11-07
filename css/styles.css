@@ -422,6 +422,7 @@ nav {
     border-color: var(--verde-fime);
     width: 14px;
     height: 14px;
+    scale: 125%;
 }
 
 
@@ -451,9 +452,9 @@ nav {
     letter-spacing: 1px;
 
     &:hover {
-        background: #A04818;
+        background: #a04818;
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(192, 86, 33, 0.4);
+        box-shadow: 0 6px 20px rgba(192, 86, 33, 0.50);
     }
 }
 
