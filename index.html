@@ -9,9 +9,9 @@
 		href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap"
 		rel="stylesheet">
 
-	<link rel="stylesheet" href="./css/styles.css" />
+	<link rel="stylesheet" href="./styles.css" />
 
-	<script type="module" src="./js/main.js"></script>
+	<script defer src="./js/main.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
 			<div class="nav-right">
 				<ul class="nav-links">
 					<li class="dropdown">
-						<a href="#nosotros">ACERCA DE <span class="arrow">▾</span></a>
+						<a href="#nosotros">ACERCA DE<span class="arrow">▾</span></a>
 						<ul class="dropdown-menu">
 							<li><a href="pages/mision-y-vision.html">Misión y Visión</a></li>
 							<li><a href="pages/logros-fundacion.html">Logros de la Fundación</a></li>
@@ -69,7 +69,7 @@
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="#logros">LOGROS <span class="arrow">▾</span></a>
+						<a href="#logros">LOGROS<span class="arrow">▾</span></a>
 						<ul class="dropdown-menu">
 							<li><a href="pages/generaciones.html">Generaciones</a></li>
 							<li><a href="pages/becados.html">Becados</a></li>
@@ -78,7 +78,7 @@
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="#diplomados">DIPLOMADOS <span class="arrow">▾</span></a>
+						<a href="#diplomados">DIPLOMADOS<span class="arrow">▾</span></a>
 						<ul class="dropdown-menu">
 							<li><a href="pages/11-diplomado-en-uso-eficiente-de-energia.html">11° Diplomado en Uso
 									Eficiente de Energía</a></li>
@@ -107,6 +107,8 @@
 	<!-- Hero Section with Carousel -->
 	<section class="hero" id="inicio">
 		<div class="hero-slider">
+			<!-- Proponer otro tipo de letra para el titulo principal -->
+
 			<!-- Slide 1 -->
 			<div class="hero-slide active">
 				<div class="hero-image" style="background-image: url('images/slide/slide_1.png');">
@@ -135,51 +137,51 @@
 			<div class="hero-slide">
 				<div class="hero-image" style="background-image: url('images/slide/slide_3.png');">
 					<div class="hero-overlay">
-						</d iv>
-					</div>
-					<div class="hero-content">
-						<h1 class="hero-title">Carta de Agradecimiento</h1>
-						<p class="hero-subtitle">Generaciones donadoras a la Fundación PROFIME | 29 de octubre 2025</p>
 					</div>
 				</div>
+				<div class="hero-content">
+					<h1 class="hero-title">Carta de Agradecimiento</h1>
+					<p class="hero-subtitle">Generaciones donadoras a la Fundación PROFIME | 29 de octubre 2025</p>
+				</div>
 			</div>
+		</div>
 
-			<!-- Navigation Arrows -->
-			<button class="slider-arrow slider-arrow-left" onclick="moveSlide(-1)">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round" />
-				</svg>
-			</button>
-			<button class="slider-arrow slider-arrow-right" onclick="moveSlide(1)">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round" />
-				</svg>
-			</button>
+		<!-- Navigation Arrows -->
+		<button class="slider-arrow slider-arrow-left" onclick="moveSlide(-1)">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round"
+					stroke-linejoin="round" />
+			</svg>
+		</button>
+		<button class="slider-arrow slider-arrow-right" onclick="moveSlide(1)">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round"
+					stroke-linejoin="round" />
+			</svg>
+		</button>
 
-			<!-- Dots Indicator -->
-			<div class="slider-dots">
-				<span class="dot active" onclick="currentSlide(0)"></span>
-				<span class="dot" onclick="currentSlide(1)"></span>
-				<span class="dot" onclick="currentSlide(2)"></span>
-			</div>
+		<!-- Dots Indicator -->
+		<div class="slider-dots">
+			<span class="dot active" onclick="currentSlide(0)"></span>
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+		</div>
 
-			<!-- CTA Button -->
-			<div class="hero-cta-container">
-				<a href="#contacto" class="cta-button">Unidos Somos Más Fuertes</a>
-				<!-- opcion 1 unidos somos mas -->
-				<!-- opcion 2 trasformemos nuestros estudiantes -->
-				<!-- opcion 3 ayudemos de corazon-->
-				<!-- opcion 4 ayudemos a traformar -->
-				<!-- opcion 5 Tu haz haces la diferencia -->
-				<!-- opcion 6 todo donativo es bueno -->
-				<!-- opcion 7 cada exafime cuenta -->
-				<!-- opcion 8 campaña de donacion -->
-				<!-- opcion 9  -->
-				<!-- buscar campaña de donacion -->
-				<!-- contador que cada vez qe eentre a la pagina cuentte  -->
-			</div>
+		<!-- CTA Button -->
+		<div class="hero-cta-container">
+			<a href="#contacto" class="cta-button">Unidos Somos Más Fuertes</a>
+			<!-- opcion 1 unidos somos mas -->
+			<!-- opcion 2 trasformemos nuestros estudiantes -->
+			<!-- opcion 3 ayudemos de corazon-->
+			<!-- opcion 4 ayudemos a traformar -->
+			<!-- opcion 5 Tu haz haces la diferencia -->
+			<!-- opcion 6 todo donativo es bueno -->
+			<!-- opcion 7 cada exafime cuenta -->
+			<!-- opcion 8 campaña de donacion -->
+			<!-- opcion 9  -->
+			<!-- buscar campaña de donacion -->
+			<!-- contador que cada vez qe eentre a la pagina cuentte  -->
+		</div>
 	</section>
 
 	<!-- About Section -->
@@ -285,108 +287,81 @@
 		</p>
 		<div class="countries-grid">
 			<div class="country-card">
-				<div class="country-flag">🇫🇷</div>
-				<h4>Francia</h4>
+				<img src="images/flags/francia.png" class="country-flag" alt="🇫🇷">
+				<h4 class="country-name">Francia</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇪🇸</div>
-				<h4>España</h4>
+				<img src="images/flags/españa.png" class="country-flag" alt="🇪🇸">
+				<h4 class="country-name">España</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇩🇪</div>
-				<h4>Alemania</h4>
+				<img src="images/flags/alemania.png" class="country-flag" alt="🇩🇪">
+				<h4 class="country-name">Alemania</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇬🇧</div>
-				<h4>Inglaterra</h4>
+				<img src="images/flags/inglaterra.png" class="country-flag" alt="🇬🇧">
+				<h4 class="country-name">Inglaterra</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇺🇸</div>
-				<h4>Estados Unidos</h4>
+				<img src="images/flags/canada.png" class="country-flag" alt="🇨🇦">
+				<h4 class="country-name">Canadá</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇨🇦</div>
-				<h4>Canadá</h4>
+				<img src="images/flags/chile.png" class="country-flag" alt="🇨🇱">
+				<h4 class="country-name">Chile</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇨🇱</div>
-				<h4>Chile</h4>
+				<img src="images/flags/estados-unidos.png" class="country-flag" alt="🇺🇸">
+				<h4 class="country-name">EE.UU.</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇰🇷</div>
-				<h4>Corea del Sur</h4>
+				<img src="images/flags/corea-del-sur.png" class="country-flag" alt="🇰🇷">
+				<h4 class="country-name">Corea S.</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇮🇪</div>
-				<h4>Irlanda</h4>
+				<img src="images/flags/irlanda.png" class="country-flag" alt="🇮🇪">
+				<h4 class="country-name">Irlanda</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇨🇴</div>
-				<h4>Colombia</h4>
+				<img src="images/flags/colombia.png" class="country-flag" alt="🇨🇴">
+				<h4 class="country-name">Colombia</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇧🇷</div>
-				<h4>Brasil</h4>
+				<img src="images/flags/brasil.png" class="country-flag" alt="🇧🇷">
+				<h4 class="country-name">Brasil</h4>
 			</div>
 			<div class="country-card">
-				<div class="country-flag">🇦🇺</div>
-				<h4>Australia</h4>
+				<img src="images/flags/australia.png" class="country-flag" alt="🇦🇺">
+				<h4 class="country-name">Australia</h4>
 			</div>
 		</div>
 	</section>
 
 	<!-- Strategic Allies Section -->
 	<section class="allies" id="aliados">
-		<h2 class="section-title">Nuestros Aliados Estratégicos</h2>
-		<p class="section-subtitle">Colaboramos con empresas líderes para ofrecer mejores oportunidades a nuestros
-			estudiantes</p>
-		<!-- <div class="allies-container">
-			 <div class="allies-grid">
-				<div class="ally-card">
-					<img src="images/aliados/Katcon.png" alt="">
+		<div class="allies-container">
+			<h2 class="section-title">Nuestros Aliados Estratégicos</h2>
+			<p class="section-subtitle">Colaboramos con empresas líderes para ofrecer mejores oportunidades a nuestros
+				estudiantes</p>
+			<div class="allies-logos">
+				<div class="allies-logos-slide">
+					<img src="images/aliados/Katcon.png" alt="Katcon">
+					<img src="images/aliados/Meritor.png" alt="Meritor">
+					<img src="images/aliados/Metalsa.png" alt="Metalsa">
+					<img src="images/aliados/Nemak.png" alt="Nemak">
+					<img src="images/aliados/Ternium.png" alt="Ternium">
+					<img src="images/aliados/Viakable.png" alt="Viakable">
+					<img src="images/aliados/Vitro.png" alt="Vitro">
 				</div>
-				<div class="ally-card">
-					<img src="images/aliados/Meritor.png" alt="">
+				<div class="allies-logos-slide">
+					<img src="images/aliados/Katcon.png" alt="Katcon">
+					<img src="images/aliados/Meritor.png" alt="Meritor">
+					<img src="images/aliados/Metalsa.png" alt="Metalsa">
+					<img src="images/aliados/Nemak.png" alt="Nemak">
+					<img src="images/aliados/Ternium.png" alt="Ternium">
+					<img src="images/aliados/Viakable.png" alt="Viakable">
+					<img src="images/aliados/Vitro.png" alt="Vitro">
 				</div>
-				<div class="ally-card">
-					<img src="images/aliados/Metalsa.png" alt="">
-				</div>
-				<div class="ally-card">
-					<img src="images/aliados/Nemak.png" alt="">
-				</div>
-				<div class="ally-card">
-					<img src="images/aliados/Viakable.png" alt="">
-				</div>
-				<div class="ally-card">
-					<img src="images/aliados/Vitro.png" alt="">
-				</div>
-			</div> 
-
-			 <div class="allies-grid">
-				<div class="ally-card">
-					<div style="font-size: 1.8rem; color: #E91E63; font-weight: bold;">Metalsa</div>
-				</div>
-				<div class="ally-card">
-					<div style="font-size: 1.8rem; color: #4CAF50; font-weight: bold;">Metalsa</div>
-				</div>
-				<div class="ally-card">
-					<div style="font-size: 1.8rem; color: #2196F3; font-weight: bold;">Metalsa</div>
-				</div>
-				<div class="ally-card">
-					<div style="font-size: 1.8rem; color: #607D8B; font-weight: bold;">Metalsa</div>
-				</div>
-				<div class="ally-card">
-					<div style="font-size: 1.8rem; color: #757575; font-weight: bold;">Metalsa</div>
-				</div>
-				<div class="ally-card">
-					<div style="font-size: 1.8rem; color: #E91E63; font-weight: bold;">Metalsa</div>
-				</div>
-			</div> 
-		</div> -->
-
-		<div class="logos">
-			<div class="logos slide">
-				<img src="" alt="">
 			</div>
 		</div>
 	</section>
@@ -418,8 +393,13 @@
 			<div class="footer-section">
 				<h3>Institucional</h3>
 				<div class="footer-logos">
-					<img src="images/logos/logo-uanl.png" class="" alt="">
-					<img src="images/logos/logo-fime.png" class="" alt="">
+					<a href="https://www.uanl.mx/" target="_blank" rel="noopener noreferrer">
+						<img src="images/logos/logo-uanl.png" class="footer-logo" alt="UNAL">
+					</a>
+
+					<a href="https://www.fime.uanl.mx/" target="_blank" rel="noopener noreferrer">
+						<img src="images/logos/logo-fime.png" class="footer-logo" alt="FIME">
+					</a>
 				</div>
 			</div>
 		</div>
