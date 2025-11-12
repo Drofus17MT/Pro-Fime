@@ -323,6 +323,20 @@ nav {
     background-image: linear-gradient(to right, var(--verde-fime) 0%, var(--verde-oscuro) 100%);
 }
 
+.hero-image-contact {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to right, var(--verde-fime) 0%, var(--verde-oscuro) 100%);
+    /*
+    mask-image: linear-gradient(to top, transparent 0%, black 100%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0, black 10%);
+    */
+}
+
 .hero-overlay {
     position: absolute;
     width: 100%;
