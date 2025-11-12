@@ -493,7 +493,7 @@ nav {
     font-size: 1.1rem;
     color: var(--gris-medio);
     margin-bottom: 4rem;
-    max-width: 700px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -541,9 +541,36 @@ nav {
 
 
 
+/* Mission and Vision */
+.mission-vision {
+    background: var(--gris-claro);
+    padding: 100px 1rem;
+}
+
+.mission-vision-card {
+    background: #ffff;
+    padding: 2.5rem 2rem;
+    border-radius: 0.5rem;
+    text-align: justify;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--verde-fime);
+    color: var(--gris-medio);
+
+    &:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    h3 {
+        color: black;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+}
+
 /* Values Section */
 .values {
-    background: var(--gris-claro);
     padding: 100px 2rem;
 }
 
@@ -724,7 +751,7 @@ nav {
     white-space: nowrap;
     position: relative;
     margin-top: 3rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 
     &::before,
     &::after {
@@ -901,7 +928,7 @@ footer {
 
 .president-card {
     background: #ffff;
-    padding: 2.5rem 2rem;
+    padding: 40px 20px 30px 20px;
     border-radius: 0.5rem;
     text-align: center;
     transition: all 0.3s ease;
@@ -912,39 +939,46 @@ footer {
         transform: translateY(-8px) scale(1.05);
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     }
-}
-
-.president-icon {
-    img {
-        width: 150px;
-        height: 150px;
-        fill: #ffff;
-        border-radius: 100%;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-
-        &:hover {
-            height: 2.4em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            line-height: 1.2;
-            overflow: hidden;
-        }
-    }
 
     h3 {
-        color: var(--verde-fime);
-        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.2;
+        overflow: hidden;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        margin: 0 auto 25px auto;
+    }
+
+    p {
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.2;
+        overflow: hidden;
+        font-size: 1.1rem;
         margin-bottom: 1rem;
         font-weight: 600;
     }
 
-    p {
-        color: var(--gris-medio);
-        line-height: 1.7;
-        font-size: 0.98rem;
+    strong {
+        display: inline-block;
+        color: var(--verde-fime);
+        font-weight: 600;
     }
+}
+
+.president-icon img {
+    width: 150px;
+    height: 150px;
+    fill: #ffff;
+    border-radius: 100%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    margin: 0 auto 25px auto;
 }
 
 
@@ -1048,21 +1082,4 @@ footer {
     .allies-grid {
         grid-template-columns: 1fr;
     }
-}
-
-
-.grind-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 1em;
-}
-
-.item {
-    padding: 2em;
-    background-color: red;
-    color: black;
-    text-align: center;
-    border-radius: 8px;
-    font-size: 2rem;
 }

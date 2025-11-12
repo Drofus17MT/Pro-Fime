@@ -5,6 +5,7 @@ const dots = document.querySelectorAll(".dot");
 let slideInterval;
 
 function showSlide(index) {
+  if (slides.length === 0) return;
   slides.forEach((slide) => slide.classList.remove("active"));
   dots.forEach((dot) => dot.classList.remove("active"));
 
@@ -13,6 +14,7 @@ function showSlide(index) {
 }
 
 function moveSlide(direction) {
+  if (slides.length === 0) return;
   currentSlideIndex += direction;
 
   if (currentSlideIndex >= slides.length) {
@@ -26,12 +28,14 @@ function moveSlide(direction) {
 }
 
 function currentSlide(index) {
+  if (slides.length === 0) return;
   currentSlideIndex = index;
   showSlide(currentSlideIndex);
   resetInterval();
 }
 
 function autoSlide() {
+  if (slides.length === 0) return;
   currentSlideIndex++;
   if (currentSlideIndex >= slides.length) {
     currentSlideIndex = 0;
@@ -41,46 +45,53 @@ function autoSlide() {
 
 function resetInterval() {
   clearInterval(slideInterval);
+  if (slides.length > 0) {
+    slideInterval = setInterval(autoSlide, 5000);
+  }
+}
+
+if (slides.length > 0) {
+  showSlide(0);
   slideInterval = setInterval(autoSlide, 5000);
 }
 
-// Initialize slider
-showSlide(0);
-slideInterval = setInterval(autoSlide, 5000);
-
 // Header scroll effect
 let lastScroll = 0;
-window.addEventListener("scroll", function () {
-  const header = document.getElementById("header");
-  const currentScroll = window.pageYOffset;
+const header = document.getElementById("header");
+if (header) {
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset;
 
-  if (currentScroll > 30) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
+    if (currentScroll > 30) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
 
-  lastScroll = currentScroll;
-});
+    lastScroll = currentScroll;
+  });
+}
 
 // Search functionality
 const searchButton = document.querySelector(".search-button");
 const searchInput = document.querySelector(".search-input");
 
-searchButton.addEventListener("click", function () {
-  const searchTerm = searchInput.value.trim();
-  if (searchTerm) {
-    console.log("Buscando:", searchTerm);
-    // Aquí puedes implementar la lógica de búsqueda
-    alert("Función de búsqueda: " + searchTerm);
-  }
-});
+if (searchButton && searchInput) {
+  searchButton.addEventListener("click", function () {
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm) {
+      console.log("Buscando:", searchTerm);
+      // Aquí puedes implementar la lógica de búsqueda
+      alert("Función de búsqueda: " + searchTerm);
+    }
+  });
 
-searchInput.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    searchButton.click();
-  }
-});
+  searchInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      searchButton.click();
+    }
+  });
+}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
