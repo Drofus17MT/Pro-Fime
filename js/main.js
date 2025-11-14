@@ -7,10 +7,14 @@ let slideInterval;
 function showSlide(index) {
   if (slides.length === 0) return;
   slides.forEach((slide) => slide.classList.remove("active"));
-  dots.forEach((dot) => dot.classList.remove("active"));
+  if (dots && dots.length > 0) {
+    dots.forEach((dot) => dot.classList.remove("active"));
+  }
 
   slides[index].classList.add("active");
-  dots[index].classList.add("active");
+  if (dots && dots[index]) {
+    dots[index].classList.add("active");
+  }
 }
 
 function moveSlide(direction) {

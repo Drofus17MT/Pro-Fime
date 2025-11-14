@@ -647,6 +647,11 @@ nav {
 
 
 /* Countries Section */
+.countries-base {
+    background: var(--gris-claro);
+    padding: 100px 2rem;
+}
+
 .countries {
     padding: 100px 2rem;
     max-width: 1200px;
@@ -743,7 +748,6 @@ nav {
 
 /* Strategic Allies Section */
 .allies {
-    background: var(--gris-claro);
     padding: 100px 2rem;
 }
 
@@ -994,6 +998,49 @@ footer {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     margin: 0 auto 25px auto;
 }
+
+
+/*
+ *
+ * Archivo: "contactos.html"
+ *
+ */
+
+/* Contact */
+.e-mail-cube {
+    background-color: var(--verde-fime);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+
+
+
+
+/*
+ *
+ * Archivo: "logros-de-fundacion.html"
+ *
+ */
+
+ /* Achievements of the foundation */
+ .achievements {
+     padding: 100px 2rem;
+ }
+
+ .container-achievements {
+     background-color: var(--verde-fime);
+     color: white;
+     padding: 12px 24px;
+     border-radius: 0.5rem;
+     font-size: 16px;
+     display: inline-block;
+     transition: background-color 0.3s;
+ }
 
 
 
