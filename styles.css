@@ -514,8 +514,9 @@ nav {
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    /* grid-template-columns: 2fr 1fr; Hasta encontrar una imagen */
+    grid-template-columns: 1fr;
+    gap: 6rem;
     align-items: center;
 }
 
@@ -541,16 +542,9 @@ nav {
     }
 }
 
-.about-icon {
-    background: linear-gradient(135deg, var(--verde-fime) 0%, var(--verde-oscuro) 100%);
-    border-radius: 0.5rem;
-    padding: 3rem;
-    box-shadow: 0 10px 40px rgba(0, 97, 53, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.logo-img-icon{
+    height: 20rem;
 }
-
 
 
 
@@ -1027,22 +1021,94 @@ footer {
  *
  */
 
- /* Achievements of the foundation */
- .achievements {
-     padding: 100px 2rem;
- }
+/* Achievements of the foundation */
+.achievements {
+    padding: 100px 2rem;
+}
 
- .container-achievements {
-     background-color: var(--verde-fime);
-     color: white;
-     padding: 12px 24px;
-     border-radius: 0.5rem;
-     font-size: 16px;
-     display: inline-block;
-     transition: background-color 0.3s;
- }
+.container-achievements {
+    background-color: var(--verde-fime);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.logros-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.logro-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+
+    &::hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.logro-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.logro-number {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: var(--verde-fime);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(124, 179, 66, 0.3);
+}
+
+.logro-text {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--gris-oscuro);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .logro-item {
+        padding: 1.2rem;
+        gap: 1rem;
+    }
+
+    .logro-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .logro-text {
+        font-size: 0.95rem;
+    }
+}
 
 
 
