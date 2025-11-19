@@ -53,3 +53,8 @@ La estructura actual presenta duplicidades y categorías que podrían organizars
 2. **Mejor experiencia de usuario**: información relacionada agrupada lógicamente
 3. **Reducción de duplicidades**: eliminación de contenido repetido
 4. **Navegación intuitiva**: estructura que refleja las prioridades de la fundación
+
+
+py -3 -m http.server 8000
+
+http://localhost:8000/pages/alumnos-beneficiados.html
