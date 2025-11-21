@@ -551,9 +551,18 @@ nav {
     align-items: center;
     gap: 20px;
 
+
     img {
         max-width: 500px;
         max-height: 210px;
+        transition: var(--transition);
+
+        &:hover {
+            background: hsl(0, 0%, 97%);
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--verde-fime);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
     }
 }
 
