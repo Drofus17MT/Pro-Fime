@@ -4,11 +4,11 @@ export function graficasAlumnados() {
     { label: "EUA", value: 27 },
     { label: "Australia", value: 1 },
     { label: "Sudamérica", value: 6 },
-    { label: "Otros países", value: 28 },
+    { label: "Otros países", value: 35 },
   ];
   const donutData = [
-    { label: "Mujeres", value: 22, color: "rgba(255,140,220,0.9)" },
-    { label: "Hombres", value: 78, color: "rgba(100,220,220,0.9)" },
+    { label: "Mujeres", value: 23, color: "rgba(255,140,220,0.9)" },
+    { label: "Hombres", value: 86, color: "rgba(100,220,220,0.9)" },
   ];
 
   const q = (sel, root = document) => root.querySelector(sel);
@@ -22,6 +22,7 @@ export function graficasAlumnados() {
     tooltip.style.transform = "translateY(0) scale(1)";
     tooltip.setAttribute("aria-hidden", "false");
   }
+  
   function hideTooltip() {
     tooltip.style.opacity = "0";
     tooltip.style.transform = "translateY(-6px) scale(.96)";
@@ -68,6 +69,7 @@ export function graficasAlumnados() {
       badge.style.transform = "translateY(-6px)";
       clearTimeout(hideTO);
     }
+    
     function leave() {
       hideTO = setTimeout(() => {
         hideTooltip();
@@ -75,6 +77,7 @@ export function graficasAlumnados() {
         badge.style.transform = "translateY(-10px)";
       }, 120);
     }
+
     barVisual.addEventListener("mouseenter", enter);
     barVisual.addEventListener("mousemove", (ev) =>
       showTooltip(
@@ -110,8 +113,9 @@ export function graficasAlumnados() {
     });
   }
 
-  requestAnimationFrame(() => setTimeout(animateBars, 200));
+  requestAnimationFrame(() => setTimeout(animateBars, 200)); // 1 seg = 1000 ticks
 
+  // Donut o si que rico ajjaja
   const svg = q("#donut");
   const g =
     svg.querySelector("g") ||
@@ -122,7 +126,6 @@ export function graficasAlumnados() {
 
   const radiusOuter = 90;
   const radiusInner = 50;
-  const circumference = 2 * Math.PI * radiusOuter;
 
   function polarToCartesian(cx, cy, radius, angleInDegrees) {
     const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
