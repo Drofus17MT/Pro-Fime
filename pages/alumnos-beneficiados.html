@@ -72,7 +72,7 @@
 							<li><a href="generaciones.html">Generaciones</a></li>
 							<li><a href="becados.html">Becados</a></li>
 							<li><a href="alumnos-beneficiados.html">Alumnos Beneficiados</a></li>
-		
+
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -122,62 +122,61 @@
 			género.
 		</p>
 
-		<div class="benefited-students-container">
-			<section class="card">
-				<div class="bars-wrapper">
-					<div class="bars-top">
-						<div>
-							<div style="font-size:1.2rem;color:var(--gris-medio);font-weight:600">Total de alumnos
-								Beneficiados</div>
-							<div style="font-size:1.1rem;color:var(--gris-oscuro);font-weight:700">Año 2010 - 2024</div>
-						</div>
-						<div style="font-size:1.2rem;text-align:right;color:var(--gris-medio);font-weight:600">
-							<span id="total-count" aria-hidden="true">109</span> alumnos
-						</div>
+		<section class="card">
+			<div class="bars-wrapper">
+				<div class="bars-top">
+					<div>
+						<div style="font-size:1.2rem;color:var(--gris-medio);font-weight:600">Total de alumnos
+							Beneficiados</div>
+						<div style="font-size:1.1rem;color:var(--gris-oscuro);font-weight:700">Año 2010 - 2024</div>
+					</div>
+					<div style="font-size:1.2rem;text-align:right;color:var(--gris-medio);font-weight:600">
+						<span id="total-count" aria-hidden="true">109</span> alumnos
+					</div>
+				</div>
+
+				<div class="bars-stage">
+					<div class="bar-chat">
+						<div class="bar-grid" id="bar-grid" role="img"
+							aria-label="Gráfica de barras: Alumnos por región"></div>
 					</div>
 
-					<div class="bars-stage">
-						<div class="bar-chart" aria-hidden="false">
-							<div class="bar-grid" id="bar-grid" role="img"
-								aria-label="Gráfica de barras: Alumnos por región"></div>
+					<div class="bar-chat" style="display: flex;">
+						<svg id="donut" width="240" height="240" viewBox="0 0 240 240" aria-hidden="false" role="img"
+							aria-label="Gráfica dona: distribución por género">
+							<defs>
+								<filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+									<feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.12"
+										flood-color="#000" />
+								</filter>
+							</defs>
+							<g transform="translate(120,120)"></g>
+						</svg>
+						<div style="text-align:center">
+							<div style="font-weight:700;color:var(--gris-oscuro);font-size:1.05rem">Distribución
+								por
+								género</div>
+							<div style="font-weight:600;font-size:0.95rem;color:var(--gris-medio)">Mujeres vs
+								Hombres</div>
 						</div>
 
-						<div class="donut-card">
-							<svg id="donut" width="240" height="240" viewBox="0 0 240 240" aria-hidden="false"
-								role="img" aria-label="Gráfica dona: distribución por género">
-								<defs>
-									<filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-										<feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.12"
-											flood-color="#000" />
-									</filter>
-								</defs>
-								<g transform="translate(120,120)"></g>
-							</svg>
-							<div style="text-align:center">
-								<div style="font-weight:700;color:var(--gris-oscuro);font-size:1.05rem">Distribución
-									por
-									género</div>
-								<div style="font-weight:600;font-size:0.95rem;color:var(--gris-medio)">Mujeres vs
-									Hombres</div>
+						<div class="donut-legend">
+							<div class="legend-item"><span class="swatch"
+									style="background: rgba(255,140,220,0.9)"></span> Mujeres
+								<strong>23</strong>
 							</div>
-
-							<div class="donut-legend">
-								<div class="legend-item"><span class="swatch"
-										style="background: rgba(255,140,220,0.9)"></span> Mujeres
-									<strong>23</strong>
-								</div>
-								<div class="legend-item"><span class="swatch"
-										style="background: rgba(100,220,220,0.9)"></span> Hombres
-									<strong>86</strong>
-								</div>
+							<div class="legend-item"><span class="swatch"
+									style="background: rgba(100,220,220,0.9)"></span> Hombres
+								<strong>86</strong>
 							</div>
 						</div>
-
 					</div>
 
 				</div>
-			</section>
-		</div>
+
+			</div>
+		</section>
+
 	</section>
 
 	<!-- Footer -->
