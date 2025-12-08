@@ -557,6 +557,30 @@ nav {
     }
 }
 
+.imgdiplomados
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    
+    img {
+        max-width: 300px;
+        max-height: 240px;
+        transition: var(--transition);
+        border-style: solid;
+        border-color: green;
+        border-radius: 10px;
+        
+        &:hover {
+            background: hsl(0, 0%, 97%);
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--verde-fime);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
 /* Values Section */
 .values-grid {
     display: grid;
