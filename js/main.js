@@ -1,7 +1,7 @@
 // Hero Slider
 let currentSlideIndex = 0;
-const slides = document.querySelectorAll(".hero-slide");
-const dots = document.querySelectorAll(".dot");
+let slides = [];
+let dots = [];
 let slideInterval;
 
 function showSlide(index) {
@@ -54,10 +54,24 @@ function resetInterval() {
   }
 }
 
-if (slides.length > 0) {
-  showSlide(0);
-  slideInterval = setInterval(autoSlide, 5000);
-}
+// Initialize slider and dots
+document.addEventListener("DOMContentLoaded", function() {
+  slides = document.querySelectorAll(".hero-slide");
+  dots = document.querySelectorAll(".dot");
+  
+  // Add click event listeners to dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", function() {
+      currentSlide(index);
+    });
+  });
+  
+  // Initialize slider
+  if (slides.length > 0) {
+    showSlide(0);
+    slideInterval = setInterval(autoSlide, 5000);
+  }
+});
 
 // Header scroll effect
 let lastScroll = 0;
@@ -114,4 +128,15 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       });
     }
   });
+});
+
+// 
+document.addEventListener("DOMContentLoaded", function() {
+  const fundacionProFimeLogo = document.querySelector(".logo-img");
+
+  if (fundacionProFimeLogo) {
+    fundacionProFimeLogo.addEventListener("click", function() {
+      window.location.href = "/";
+    });
+  }
 });

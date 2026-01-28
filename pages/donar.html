@@ -12,6 +12,23 @@
 	<link rel="stylesheet" href="../styles.css" />
 
 	<script type="module" src="../js/main.js"></script>
+	<script>
+		function copyToClipboard(text, buttonElement) {
+			navigator.clipboard.writeText(text).then(function() {
+				const button = buttonElement || document.querySelector('.copy-button');
+				const span = button.querySelector('span');
+				const originalText = span.textContent;
+				span.textContent = '¡Copiado!';
+				button.style.background = 'var(--verde-fime)';
+				setTimeout(() => {
+					span.textContent = originalText;
+					button.style.background = '';
+				}, 2000);
+			}).catch(function(err) {
+				alert('Error al copiar: ' + err);
+			});
+		}
+	</script>
 </head>
 
 <body>
@@ -86,9 +103,9 @@
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="../pages/donar.html">DONATIVO<span class="arrow">▾</span></a>
+						<a href="../pages/donar.html">HAZ TU DONATIVO<span class="arrow">▾</span></a>
 						<ul class="dropdown-menu">
-							<li><a href="../pages/donar.html">CLABE: 07 2580 0063 5641 1442</a></li>
+							<li><a href="../pages/donar.html">Realizar Donativo</a></li>
 							<li><a href="../pages/HISTORIA-DE-DONACIONES.html">HISTORIAL DE DONACIONES</a></li>
 						</ul>
 					</li>
@@ -110,39 +127,118 @@
 
 	<section class="hero-contact">
 		<div class="hero-content">
-			<h1 class="hero-title">Donativo</h1>
-			<p class="hero-subtitle" class="section-subtitle"><strong>🤝 ¡Tu apoyo transforma vidas!</strong></p>
+			<h1 class="hero-title">Haz Tu Donativo</h1>
+			<p class="hero-subtitle"><strong>🤝 ¡Tu apoyo transforma vidas!</strong></p>
 		</div>
 	</section>
 	<hr class="separator">
 
 	<div class="part" id="donation">
-		<div class="about-text">
-			<p>En la Fundación PROFIME, trabajamos día a día para fortalecer el vínculo entre la academia, la industria
-				y nuestros egresados.</p>
-			<p>Gracias a personas como tú, hemos cambiado y mejorado vidas:</p>
-			<ul>
-				<li>Otorgando becas de movilidad para estudiantes de FIME en el extranjero.</li>
-				<li>Equipando aulas y laboratorios en FIME.</li>
-				<li>Ofreciendo diplomados en eficiencia energética.</li>
-				<li>Conectando a cientos de EXAFIMES con oportunidades de desarrollo.</li>
-			</ul>
-
-			<div class="donation-call-to-action">
-				<p>¿Quieres ser parte del cambio? 🙌</p>
-				<p>Tu donación, sin importar el monto, nos ayuda a continuar con nuestra misión de impulsar la formación
-					profesional y el desarrollo integral de los estudiantes y egresados de la FIME.</p>
+		<div class="donation-container">
+			<div class="donation-intro">
+				<h2 class="donation-section-title">Tu Contribución Hace la Diferencia</h2>
+				<p class="donation-intro-text">En la Fundación PROFIME, trabajamos día a día para fortalecer el vínculo entre la academia, la industria y nuestros egresados.</p>
+				<p class="donation-intro-text">Gracias a personas como tú, hemos cambiado y mejorado vidas:</p>
 			</div>
 
-			<div class="donation-info">
-				<p>💳 Realiza tu donativo de forma segura</p>
-				<div class="donation-account">
-					<p><strong>DONATIVO:</strong> <span class="donation-account-number">06 3564 1144</span></p>
-					<p><strong>CLABE:</strong> <span class="donation-clabe">07 2580 0063 5641 1442</span></p>
+			<div class="donation-benefits-grid">
+				<div class="donation-benefit-card">
+					<div class="benefit-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+							<circle cx="9" cy="7" r="4"></circle>
+							<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+							<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+						</svg>
+					</div>
+					<h3>Becas de Movilidad</h3>
+					<p>Otorgando becas de movilidad para estudiantes de FIME en el extranjero</p>
 				</div>
+
+				<div class="donation-benefit-card">
+					<div class="benefit-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+							<line x1="9" y1="3" x2="9" y2="21"></line>
+							<line x1="3" y1="9" x2="21" y2="9"></line>
+						</svg>
+					</div>
+					<h3>Equipamiento</h3>
+					<p>Equipando aulas y laboratorios en FIME con tecnología de vanguardia</p>
+				</div>
+
+				<div class="donation-benefit-card">
+					<div class="benefit-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+							<path d="M2 17l10 5 10-5"></path>
+							<path d="M2 12l10 5 10-5"></path>
+						</svg>
+					</div>
+					<h3>Diplomados</h3>
+					<p>Ofreciendo diplomados en eficiencia energética y desarrollo profesional</p>
+				</div>
+
+				<div class="donation-benefit-card">
+					<div class="benefit-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+							<circle cx="12" cy="10" r="3"></circle>
+						</svg>
+					</div>
+					<h3>Red de Contactos</h3>
+					<p>Conectando a cientos de EXAFIMES con oportunidades de desarrollo</p>
+				</div>
+			</div>
+
+			<div class="donation-call-to-action">
+				<div class="cta-content">
+					<h3>¿Quieres ser parte del cambio? 🙌</h3>
+					<p>Tu donación, sin importar el monto, nos ayuda a continuar con nuestra misión de impulsar la formación profesional y el desarrollo integral de los estudiantes y egresados de la FIME.</p>
+				</div>
+			</div>
+
+			<div class="donation-info-card">
+				<div class="donation-info-header">
+					<div class="donation-icon-wrapper">
+						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+							<line x1="1" y1="10" x2="23" y2="10"></line>
+						</svg>
+					</div>
+					<h3>Realiza tu donativo de forma segura</h3>
+				</div>
+				
+				<div class="donation-account-card">
+					<div class="account-info-row">
+						<span class="account-label">DONATIVO:</span>
+						<span class="account-number">06 3564 1144</span>
+					</div>
+					<div class="account-info-row">
+						<span class="account-label">CLABE:</span>
+						<span class="account-clabe">07 2580 0063 5641 1442</span>
+					</div>
+					<button class="copy-button" onclick="copyToClipboard('07 2580 0063 5641 1442', this)">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+							<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+						</svg>
+						<span>Copiar CLABE</span>
+					</button>
+				</div>
+
 				<div class="donation-scholarship-info">
-					<p>BECAS MOVILIDAD INTL.</p>
-					<p>FUNDACIÓN PROFIME</p>
+					<div class="scholarship-badge">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+							<path d="M2 17l10 5 10-5"></path>
+							<path d="M2 12l10 5 10-5"></path>
+						</svg>
+						<div>
+							<p class="scholarship-title">BECAS MOVILIDAD INTL.</p>
+							<p class="scholarship-subtitle">FUNDACIÓN PROFIME</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
