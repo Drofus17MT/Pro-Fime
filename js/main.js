@@ -55,17 +55,17 @@ function resetInterval() {
 }
 
 // Initialize slider and dots
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   slides = document.querySelectorAll(".hero-slide");
   dots = document.querySelectorAll(".dot");
-  
+
   // Add click event listeners to dots
   dots.forEach((dot, index) => {
-    dot.addEventListener("click", function() {
+    dot.addEventListener("click", function () {
       currentSlide(index);
     });
   });
-  
+
   // Initialize slider
   if (slides.length > 0) {
     showSlide(0);
@@ -130,13 +130,42 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// 
-document.addEventListener("DOMContentLoaded", function() {
+// Direccionar a la pagina principal
+document.addEventListener("DOMContentLoaded", function () {
   const fundacionProFimeLogo = document.querySelector(".logo-img");
 
   if (fundacionProFimeLogo) {
-    fundacionProFimeLogo.addEventListener("click", function() {
+    fundacionProFimeLogo.addEventListener("click", function () {
       window.location.href = "/";
     });
   }
+});
+
+// Copy CLABE functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const copyButtons = document.querySelectorAll(".copy-button");
+
+  copyButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const textToCopy = this.getAttribute("data-clipboard-text");
+      if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          const span = this.querySelector("span");
+          let originalText = "";
+          if (span) {
+            originalText = span.textContent;
+            span.textContent = "¡Copiado!";
+          }
+          this.style.background = "var(--verde-fime)";
+
+          setTimeout(() => {
+            if (span) {
+              span.textContent = originalText;
+            }
+            this.style.background = "";
+          }, 2000);
+        });
+      }
+    });
+  });
 });
