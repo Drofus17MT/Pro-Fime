@@ -1,0 +1,13 @@
+export { default as Index } from './Index';
+export { default as Contacto } from './Contacto';
+export { default as ConsejoDirectivo } from './ConsejoDirectivo';
+export { default as HistorialDePresidentes } from './HistorialDePresidentes';
+export { default as Donar } from './Donar';
+export { default as HistorialDonaciones } from './HistorialDonaciones';
+export { default as LogrosFundacion } from './LogrosFundacion';
+export { default as AlumnosBeneficiados } from './AlumnosBeneficiados';
+export { default as Generaciones } from './Generaciones';
+export { default as Becados } from './Becados';
+export { default as Galerias } from './Galerias';
+export { default as ComiteAsesores } from './ComiteAsesores';
+export { default as Diplomado } from './Diplomado';
