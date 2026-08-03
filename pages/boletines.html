@@ -4,7 +4,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
+	<meta name="referrer" content="strict-origin-when-cross-origin">
 	<title>Fundación PROFIME - Pro Facultad de Ingeniería Mecánica y Eléctrica</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap"
 		rel="stylesheet">
@@ -51,8 +55,9 @@
 	<header id="header">
 		<nav>
 			<div class="logo-container">
-				<img href="#" src="../images/logos/logo_profime.png" alt="Logo PROFIME" class="logo-img"
-					onerror="this.style.display='none'">
+				<a href="../index.html" class="logo-link" aria-label="Ir a la página de inicio de Fundación PROFIME">
+					<img src="../images/logos/logo_profime.png" alt="Logo PROFIME" class="logo-img" width="797" height="378">
+				</a>
 			</div>
 			<div class="nav-right">
 				<ul class="nav-links">
@@ -213,11 +218,11 @@
 			<div class="footer-section">
 				<h3>Institucional</h3>
 				<a href="https://www.uanl.mx/" target="_blank" rel="noopener noreferrer">
-					<img src="../images/logos/logo-uanl.png" class="footer-logo" alt="UNAL">
+					<img src="../images/logos/logo-uanl.png" class="footer-logo" alt="UNAL" loading="lazy" decoding="async">
 				</a>
 
 				<a href="https://www.fime.uanl.mx/" target="_blank" rel="noopener noreferrer">
-					<img src="../images/logos/logo-fime.png" class="footer-logo" alt="FIME">
+					<img src="../images/logos/logo-fime.png" class="footer-logo" alt="FIME" loading="lazy" decoding="async">
 				</a>
 			</div>
 		</div>

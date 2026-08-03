@@ -1,20 +1,34 @@
-// Hero Slider
+"use strict";
+
+/* =========================================================
+   Utilidades
+   ========================================================= */
+function debounce(fn, wait = 100) {
+  let timeoutId;
+  return function debounced(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn.apply(this, args), wait);
+  };
+}
+
+/* =========================================================
+   Hero Slider
+   ========================================================= */
 let currentSlideIndex = 0;
 let slides = [];
 let dots = [];
-let slideInterval;
+let slideInterval = null;
+const SLIDE_DELAY_MS = 5000;
 
 function showSlide(index) {
   if (slides.length === 0) return;
   slides.forEach((slide) => slide.classList.remove("active"));
-  if (dots && dots.length > 0) {
+  if (dots.length > 0) {
     dots.forEach((dot) => dot.classList.remove("active"));
   }
 
-  slides[index].classList.add("active");
-  if (dots && dots[index]) {
-    dots[index].classList.add("active");
-  }
+  slides[index]?.classList.add("active");
+  dots[index]?.classList.add("active");
 }
 
 function moveSlide(direction) {
@@ -40,132 +54,320 @@ function currentSlide(index) {
 
 function autoSlide() {
   if (slides.length === 0) return;
-  currentSlideIndex++;
-  if (currentSlideIndex >= slides.length) {
-    currentSlideIndex = 0;
-  }
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
   showSlide(currentSlideIndex);
 }
 
-function resetInterval() {
-  clearInterval(slideInterval);
-  if (slides.length > 0) {
-    slideInterval = setInterval(autoSlide, 5000);
+function stopInterval() {
+  if (slideInterval) {
+    clearInterval(slideInterval);
+    slideInterval = null;
   }
 }
 
-// Initialize slider and dots
-document.addEventListener("DOMContentLoaded", function () {
-  slides = document.querySelectorAll(".hero-slide");
-  dots = document.querySelectorAll(".dot");
+function resetInterval() {
+  stopInterval();
+  if (slides.length > 0 && document.visibilityState === "visible") {
+    slideInterval = setInterval(autoSlide, SLIDE_DELAY_MS);
+  }
+}
 
-  // Add click event listeners to dots
+function initSlider() {
+  slides = Array.from(document.querySelectorAll(".hero-slide"));
+  dots = Array.from(document.querySelectorAll(".dot"));
+
+  if (slides.length === 0) return;
+
   dots.forEach((dot, index) => {
-    dot.addEventListener("click", function () {
-      currentSlide(index);
+    dot.addEventListener("click", () => currentSlide(index));
+  });
+
+  showSlide(0);
+  resetInterval();
+
+  // Pausa el auto-avance cuando el usuario interactúa con el carrusel,
+  // y lo detiene por completo si la pestaña no está visible (ahorra recursos).
+  const heroSlider = document.querySelector(".hero-slider");
+  if (heroSlider) {
+    heroSlider.addEventListener("mouseenter", stopInterval);
+    heroSlider.addEventListener("mouseleave", resetInterval);
+    heroSlider.addEventListener("focusin", stopInterval);
+    heroSlider.addEventListener("focusout", resetInterval);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      stopInterval();
+    } else {
+      resetInterval();
+    }
+  });
+}
+
+/* =========================================================
+   Header con efecto de scroll (con debounce para rendimiento)
+   ========================================================= */
+function initHeaderScroll() {
+  const header = document.getElementById("header");
+  if (!header) return;
+
+  const updateHeader = () => {
+    header.classList.toggle("scrolled", window.pageYOffset > 30);
+  };
+
+  updateHeader();
+  window.addEventListener("scroll", debounce(updateHeader, 50), { passive: true });
+}
+
+/* =========================================================
+   Menús desplegables (dropdown): accesibles con teclado y táctil,
+   no solo con :hover (que no funciona en móvil).
+   ========================================================= */
+function initDropdowns() {
+  const dropdowns = Array.from(document.querySelectorAll(".nav-links .dropdown"));
+  if (dropdowns.length === 0) return;
+
+  function closeAll(except) {
+    dropdowns.forEach((dd) => {
+      if (dd !== except) dd.classList.remove("open");
+    });
+  }
+
+  dropdowns.forEach((dropdown) => {
+    const trigger = dropdown.querySelector(":scope > a");
+    if (!trigger) return;
+
+    trigger.addEventListener("click", (e) => {
+      // Solo interceptamos los disparadores que no apuntan a una sección real
+      // de esta misma página; los enlaces reales (ej. DONATIVO) navegan normal.
+      const href = trigger.getAttribute("href") || "";
+      const isInPageAnchor = href.startsWith("#");
+      const targetExists = isInPageAnchor && href.length > 1 && document.querySelector(href);
+
+      if (isInPageAnchor && !targetExists) {
+        e.preventDefault();
+        const willOpen = !dropdown.classList.contains("open");
+        closeAll(dropdown);
+        dropdown.classList.toggle("open", willOpen);
+      }
     });
   });
 
-  // Initialize slider
-  if (slides.length > 0) {
-    showSlide(0);
-    slideInterval = setInterval(autoSlide, 5000);
-  }
-});
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".dropdown")) closeAll();
+  });
 
-// Header scroll effect
-let lastScroll = 0;
-const header = document.getElementById("header");
-if (header) {
-  window.addEventListener("scroll", function () {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 30) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-
-    lastScroll = currentScroll;
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAll();
   });
 }
 
-// Search functionality
-const searchButton = document.querySelector(".search-button");
-const searchInput = document.querySelector(".search-input");
+/* =========================================================
+   Scroll suave para anclas internas
+   ========================================================= */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (!href || href === "#") return;
 
-if (searchButton && searchInput) {
-  searchButton.addEventListener("click", function () {
-    const searchTerm = searchInput.value.trim();
-    if (searchTerm) {
-      console.log("Buscando:", searchTerm);
-      // Aquí puedes implementar la lógica de búsqueda
-      alert("Función de búsqueda: " + searchTerm);
-    }
-  });
+      let target;
+      try {
+        target = document.querySelector(href);
+      } catch {
+        // Selector inválido (ej. href="#123" o caracteres especiales): lo ignoramos
+        // en vez de dejar que se propague un error.
+        return;
+      }
 
-  searchInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      searchButton.click();
-    }
-  });
-}
+      if (!target) return;
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
+      e.preventDefault();
       const headerOffset = 126;
       const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       });
-    }
-  });
-});
-
-// Direccionar a la pagina principal
-document.addEventListener("DOMContentLoaded", function () {
-  const fundacionProFimeLogo = document.querySelector(".logo-img");
-
-  if (fundacionProFimeLogo) {
-    fundacionProFimeLogo.addEventListener("click", function () {
-      window.location.href = "/";
     });
-  }
-});
+  });
+}
 
-// Copy CLABE functionality
-document.addEventListener("DOMContentLoaded", function () {
+/* =========================================================
+   Búsqueda (solo se activa si el markup existe en la página)
+   ========================================================= */
+function initSearch() {
+  const searchButton = document.querySelector(".search-button");
+  const searchInput = document.querySelector(".search-input");
+  if (!searchButton || !searchInput) return;
+
+  const runSearch = () => {
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm) {
+      // Placeholder: aquí se debe conectar la búsqueda real cuando exista backend/índice.
+      console.log("Buscando:", searchTerm);
+    }
+  };
+
+  searchButton.addEventListener("click", runSearch);
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") runSearch();
+  });
+}
+
+/* =========================================================
+   Fallback del logo si la imagen no carga (antes iba inline
+   como onerror="..." en el HTML; se movió aquí para poder
+   aplicar una Content-Security-Policy sin 'unsafe-inline' en script-src)
+   ========================================================= */
+function initLogoFallback() {
+  document.querySelectorAll(".logo-img").forEach((img) => {
+    img.addEventListener("error", () => {
+      img.style.display = "none";
+    });
+  });
+}
+
+/* =========================================================
+   Copiar CLABE al portapapeles
+   ========================================================= */
+function initCopyButtons() {
   const copyButtons = document.querySelectorAll(".copy-button");
+  if (copyButtons.length === 0) return;
 
   copyButtons.forEach((button) => {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", async function () {
       const textToCopy = this.getAttribute("data-clipboard-text");
-      if (textToCopy) {
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          const span = this.querySelector("span");
-          let originalText = "";
-          if (span) {
-            originalText = span.textContent;
-            span.textContent = "¡Copiado!";
-          }
-          this.style.background = "var(--verde-fime)";
+      if (!textToCopy) return;
 
-          setTimeout(() => {
-            if (span) {
-              span.textContent = originalText;
-            }
-            this.style.background = "";
-          }, 2000);
-        });
+      const span = this.querySelector("span");
+      const originalText = span ? span.textContent : "";
+
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        if (span) span.textContent = "¡Copiado!";
+        this.style.background = "var(--verde-fime)";
+      } catch (err) {
+        console.error("No se pudo copiar al portapapeles:", err);
+        if (span) span.textContent = "No se pudo copiar";
+        this.style.background = "#a5341a";
+      } finally {
+        setTimeout(() => {
+          if (span) span.textContent = originalText;
+          this.style.background = "";
+        }, 2000);
       }
     });
   });
+}
+
+/* =========================================================
+   Formulario de contacto: validación en el cliente + protección
+   anti-spam básica (honeypot). No hay backend configurado en este
+   proyecto, así que el envío final se prepara como correo (mailto)
+   con los datos ya validados. Cuando exista un endpoint real
+   (formulario propio, Formspree, etc.), sustituir el bloque
+   "envío" por una petición fetch() a ese servicio.
+   ========================================================= */
+function initContactForm() {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  const statusBox = document.getElementById("formStatus");
+
+  const validators = {
+    nombre: (v) => v.trim().length >= 2,
+    email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    telefono: (v) => v.trim() === "" || /^[0-9+\-\s()]{7,20}$/.test(v.trim()),
+    asunto: (v) => v.trim() !== "",
+    mensaje: (v) => v.trim().length >= 10,
+  };
+
+  function setFieldValid(field, isValid) {
+    const group = field.closest(".form-group");
+    if (group) group.classList.toggle("invalid", !isValid);
+    field.setAttribute("aria-invalid", isValid ? "false" : "true");
+  }
+
+  function validateField(field) {
+    const validate = validators[field.name];
+    if (!validate) return true;
+    const isValid = validate(field.value);
+    setFieldValid(field, isValid);
+    return isValid;
+  }
+
+  ["nombre", "email", "telefono", "asunto", "mensaje"].forEach((name) => {
+    const field = form.elements.namedItem(name);
+    if (field) {
+      field.addEventListener("blur", () => validateField(field));
+    }
+  });
+
+  function showStatus(message, type) {
+    if (!statusBox) return;
+    statusBox.textContent = message;
+    statusBox.classList.remove("success", "error");
+    statusBox.classList.add("visible", type);
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Honeypot: si el campo trampa viene relleno, es casi seguro un bot.
+    // No mostramos error para no delatar la técnica; simplemente no enviamos.
+    const honeypot = form.elements.namedItem("empresa");
+    if (honeypot && honeypot.value.trim() !== "") {
+      return;
+    }
+
+    const fields = ["nombre", "email", "telefono", "asunto", "mensaje"]
+      .map((name) => form.elements.namedItem(name))
+      .filter(Boolean);
+
+    const allValid = fields
+      .map((field) => validateField(field))
+      .every(Boolean);
+
+    if (!allValid) {
+      showStatus("Revisa los campos marcados antes de enviar.", "error");
+      const firstInvalid = form.querySelector(".form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea");
+      firstInvalid?.focus();
+      return;
+    }
+
+    const submitBtn = form.querySelector(".submit-btn");
+    if (submitBtn) submitBtn.disabled = true;
+
+    const data = Object.fromEntries(fields.map((f) => [f.name, f.value.trim()]));
+
+    const subject = encodeURIComponent(`[Sitio web] ${data.asunto} - ${data.nombre}`);
+    const body = encodeURIComponent(
+      `Nombre: ${data.nombre}\n` +
+      `Correo: ${data.email}\n` +
+      `Teléfono: ${data.telefono || "No proporcionado"}\n\n` +
+      `Mensaje:\n${data.mensaje}`
+    );
+
+    window.location.href = `mailto:contacto@profime.org?subject=${subject}&body=${body}`;
+
+    showStatus("Tu cliente de correo se abrirá para enviar el mensaje a contacto@profime.org.", "success");
+    if (submitBtn) submitBtn.disabled = false;
+  });
+}
+
+/* =========================================================
+   Inicialización
+   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  initSlider();
+  initHeaderScroll();
+  initDropdowns();
+  initSmoothScroll();
+  initSearch();
+  initLogoFallback();
+  initCopyButtons();
+  initContactForm();
 });

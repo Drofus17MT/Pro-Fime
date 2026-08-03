@@ -4,7 +4,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
+	<meta name="referrer" content="strict-origin-when-cross-origin">
 	<title>Fundación PROFIME - Pro Facultad de Ingeniería Mecánica y Eléctrica</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap"
 		rel="stylesheet">
@@ -51,8 +55,9 @@
 	<header id="header">
 		<nav>
 			<div class="logo-container">
-				<img href="#" src="../images/logos/logo_profime.png" alt="Logo PROFIME" class="logo-img"
-					onerror="this.style.display='none'">
+				<a href="../index.html" class="logo-link" aria-label="Ir a la página de inicio de Fundación PROFIME">
+					<img src="../images/logos/logo_profime.png" alt="Logo PROFIME" class="logo-img" width="797" height="378">
+				</a>
 			</div>
 			<div class="nav-right">
 				<ul class="nav-links">
@@ -145,28 +150,28 @@
 	<section style="max-width: 1800px; width: 100%; margin: 10px auto 0; padding: 0 1rem; box-sizing: border-box; display:flex; justify-content:center; align-items:center;">
 			 <div class="allies-logos" style="display:flex; justify-content:center; align-items:center; margin: 0 auto; width: fit-content; max-width: 100%; margin-bottom: 2rem;">
 					<div class="eventos-img-slide">
-						<img src="../images/Eventos/EventoJulioBecados1.jpeg" alt="Becados1">
-						<img src="../images/Eventos/EventoJulioBecados2.jpeg" alt="Becados2">
-						<img src="../images/Eventos/EventoJulioBecados3.jpg" alt="Becados3">
-						<img src="../images/Eventos/EventoJulioBecados4.jpeg" alt="Becados4">
-						<img src="../images/Eventos/EventoJulioBecados5.jpeg" alt="Becados5">
-						<img src="../images/Eventos/EventoJulioBecados6.jpg" alt="Becados6">
-						<img src="../images/Eventos/EventoJulioBecados7.jpeg" alt="Becados7">
-						<img src="../images/Eventos/EventoJulioBecados8.jpeg" alt="Becados8">
-						<img src="../images/Eventos/EventoJulioBecados9.jpg" alt="Becados9">
-						<img src="../images/Eventos/EventoJulioBecados10.jpeg" alt="Becados10">
+						<img src="../images/Eventos/EventoJulioBecados1.jpeg" alt="Becados1" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados2.jpeg" alt="Becados2" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados3.jpg" alt="Becados3" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados4.jpeg" alt="Becados4" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados5.jpeg" alt="Becados5" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados6.jpg" alt="Becados6" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados7.jpeg" alt="Becados7" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados8.jpeg" alt="Becados8" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados9.jpg" alt="Becados9" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados10.jpeg" alt="Becados10" loading="lazy" decoding="async">
 					</div>
 					<div class="eventos-img-slide">
-						<img src="../images/Eventos/EventoJulioBecados1.jpeg" alt="Becados1">
-						<img src="../images/Eventos/EventoJulioBecados2.jpeg" alt="Becados2">
-						<img src="../images/Eventos/EventoJulioBecados3.jpg" alt="Becados3">
-						<img src="../images/Eventos/EventoJulioBecados4.jpeg" alt="Becados4">
-						<img src="../images/Eventos/EventoJulioBecados5.jpeg" alt="Becados5">
-						<img src="../images/Eventos/EventoJulioBecados6.jpg" alt="Becados6">
-						<img src="../images/Eventos/EventoJulioBecados7.jpeg" alt="Becados7">
-						<img src="../images/Eventos/EventoJulioBecados8.jpeg" alt="Becados8">
-						<img src="../images/Eventos/EventoJulioBecados9.jpg" alt="Becados9">
-						<img src="../images/Eventos/EventoJulioBecados10.jpeg" alt="Becados10">
+						<img src="../images/Eventos/EventoJulioBecados1.jpeg" alt="Becados1" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados2.jpeg" alt="Becados2" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados3.jpg" alt="Becados3" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados4.jpeg" alt="Becados4" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados5.jpeg" alt="Becados5" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados6.jpg" alt="Becados6" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados7.jpeg" alt="Becados7" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados8.jpeg" alt="Becados8" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados9.jpg" alt="Becados9" loading="lazy" decoding="async">
+						<img src="../images/Eventos/EventoJulioBecados10.jpeg" alt="Becados10" loading="lazy" decoding="async">
 					</div>
 			</div>
 	</section>
@@ -189,10 +194,10 @@
 
 	<section style="padding: 15px 16px;">
 		<div class="imgeventos" style="display:flex; justify-content:center; align-items:center; margin: 0 auto; margin-bottom: 2rem;">
-			<img src="../images/Fotos generaciones donadoras/19Junio2026.JPG" alt="Evento19Junio2026">
-			<img src="../images/Fotos generaciones donadoras/EntregaCheque19Junio2026.jpg" alt="Evento19Junio2026">
-			<img src="../images/Eventos/EventoJunio19CR1.jpg" alt="Evento19Junio2026">
-			<img src="../images/Eventos/EventoJunio19CR2.jpg" alt="Evento19Junio2026">
+			<img src="../images/Fotos generaciones donadoras/19Junio2026.JPG" alt="Evento19Junio2026" loading="lazy" decoding="async">
+			<img src="../images/Fotos generaciones donadoras/EntregaCheque19Junio2026.jpg" alt="Evento19Junio2026" loading="lazy" decoding="async">
+			<img src="../images/Eventos/EventoJunio19CR1.jpg" alt="Evento19Junio2026" loading="lazy" decoding="async">
+			<img src="../images/Eventos/EventoJunio19CR2.jpg" alt="Evento19Junio2026" loading="lazy" decoding="async">
 		</div>
 	</section>
 
@@ -218,11 +223,11 @@
 			<div class="footer-section">
 				<h3>Institucional</h3>
 				<a href="https://www.uanl.mx/" target="_blank" rel="noopener noreferrer">
-					<img src="../images/logos/logo-uanl.png" class="footer-logo" alt="UNAL">
+					<img src="../images/logos/logo-uanl.png" class="footer-logo" alt="UNAL" loading="lazy" decoding="async">
 				</a>
 
 				<a href="https://www.fime.uanl.mx/" target="_blank" rel="noopener noreferrer">
-					<img src="../images/logos/logo-fime.png" class="footer-logo" alt="FIME">
+					<img src="../images/logos/logo-fime.png" class="footer-logo" alt="FIME" loading="lazy" decoding="async">
 				</a>
 			</div>
 		</div>

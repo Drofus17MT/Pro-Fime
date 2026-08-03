@@ -14,8 +14,27 @@ export function graficasAlumnados() {
   const q = (sel, root = document) => root.querySelector(sel);
   const tooltip = q("#tooltip");
 
-  function showTooltip(html, x, y) {
-    tooltip.innerHTML = html;
+  // Construye el contenido del tooltip con nodos DOM en vez de innerHTML,
+  // para evitar cualquier riesgo de inyección aunque los datos sean fijos.
+  function setTooltipContent(label, detailText) {
+    if (!tooltip) return;
+    tooltip.textContent = "";
+
+    const strong = document.createElement("strong");
+    strong.textContent = label;
+
+    const detail = document.createElement("div");
+    detail.style.fontSize = "0.95rem";
+    detail.style.marginTop = "4px";
+    detail.textContent = detailText;
+
+    tooltip.appendChild(strong);
+    tooltip.appendChild(detail);
+  }
+
+  function showTooltip(label, detailText, x, y) {
+    if (!tooltip) return;
+    setTooltipContent(label, detailText);
     tooltip.style.left = x + 12 + "px";
     tooltip.style.top = y + 12 + "px";
     tooltip.style.opacity = "1";
@@ -24,16 +43,25 @@ export function graficasAlumnados() {
   }
   
   function hideTooltip() {
+    if (!tooltip) return;
     tooltip.style.opacity = "0";
     tooltip.style.transform = "translateY(-6px) scale(.96)";
     tooltip.setAttribute("aria-hidden", "true");
   }
 
   const grid = q("#bar-grid");
+  const totalCountEl = q("#total-count");
+
+  // Salida temprana y con aviso si la sección no está presente en la página,
+  // en vez de lanzar errores por referencias nulas.
+  if (!grid || !totalCountEl) {
+    console.warn("graficasAlumnados: no se encontraron los elementos #bar-grid / #total-count en esta página.");
+    return;
+  }
 
   const maxVal = Math.max(...barData.map((d) => d.value));
   const total = barData.reduce((s, d) => s + d.value, 0);
-  q("#total-count").textContent = total;
+  totalCountEl.textContent = total;
 
   barData.forEach((d, i) => {
     const col = document.createElement("div");
@@ -60,11 +88,7 @@ export function graficasAlumnados() {
     let hideTO;
     function enter(e) {
       const rect = e.target.getBoundingClientRect();
-      showTooltip(
-        `<strong>${d.label}</strong><div style="font-size:0.95rem;margin-top:4px">${d.value} alumnos</div>`,
-        rect.x + rect.width / 2,
-        rect.y
-      );
+      showTooltip(d.label, `${d.value} alumnos`, rect.x + rect.width / 2, rect.y);
       badge.style.opacity = "1";
       badge.style.transform = "translateY(-6px)";
       clearTimeout(hideTO);
@@ -80,11 +104,7 @@ export function graficasAlumnados() {
 
     barVisual.addEventListener("mouseenter", enter);
     barVisual.addEventListener("mousemove", (ev) =>
-      showTooltip(
-        `<strong>${d.label}</strong><div style="font-size:0.95rem;margin-top:4px">${d.value} alumnos</div>`,
-        ev.clientX,
-        ev.clientY
-      )
+      showTooltip(d.label, `${d.value} alumnos`, ev.clientX, ev.clientY)
     );
     barVisual.addEventListener("mouseleave", leave);
 
@@ -106,17 +126,23 @@ export function graficasAlumnados() {
       setTimeout(() => {
         bar.style.height = targetHeight + "px";
 
-        const badge = bar.parentElement.querySelector(".value-badge");
-        badge.style.opacity = "1";
-        badge.style.transform = "translateY(-8px)";
+        const badge = bar.parentElement?.querySelector(".value-badge");
+        if (badge) {
+          badge.style.opacity = "1";
+          badge.style.transform = "translateY(-8px)";
+        }
       }, 120 * idx);
     });
   }
 
   requestAnimationFrame(() => setTimeout(animateBars, 200)); // 1 seg = 1000 ticks
 
-  // Donut o si que rico ajjaja
+  // Gráfico de dona
   const svg = q("#donut");
+  if (!svg) {
+    console.warn("graficasAlumnados: no se encontró el elemento #donut en esta página.");
+    return;
+  }
   const g =
     svg.querySelector("g") ||
     svg.appendChild(
@@ -191,22 +217,13 @@ export function graficasAlumnados() {
 
     hit.addEventListener("mouseenter", (ev) => {
       const pct = ((slice.value / donutTotal) * 100).toFixed(1);
-      showTooltip(
-        `<strong>${slice.label}</strong><div style="margin-top:6px">${slice.value} (${pct}%)</div>`,
-        ev.clientX,
-        ev.clientY
-      );
+      showTooltip(slice.label, `${slice.value} (${pct}%)`, ev.clientX, ev.clientY);
       hit.style.opacity = "0.85";
     });
-    hit.addEventListener("mousemove", (ev) =>
-      showTooltip(
-        `<strong>${slice.label}</strong><div style="margin-top:6px">${
-          slice.value
-        } (${((slice.value / donutTotal) * 100).toFixed(1)}%)</div>`,
-        ev.clientX,
-        ev.clientY
-      )
-    );
+    hit.addEventListener("mousemove", (ev) => {
+      const pct = ((slice.value / donutTotal) * 100).toFixed(1);
+      showTooltip(slice.label, `${slice.value} (${pct}%)`, ev.clientX, ev.clientY);
+    });
     hit.addEventListener("mouseleave", hideTooltip);
 
     g.appendChild(arcGroup);

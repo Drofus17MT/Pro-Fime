@@ -146,13 +146,24 @@ nav {
     gap: 1rem;
 }
 
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.logo-link:focus-visible {
+    outline: 2px solid var(--verde-fime);
+    outline-offset: 4px;
+    border-radius: 0.5rem;
+}
+
 .logo-img {
     height: 60px;
     width: auto;
-    cursor: pointer;
     transition: transform 0.3s ease;
 
-    &:hover {
+    .logo-link:hover & {
         transform: scale(1.05);
     }
 }
@@ -238,6 +249,13 @@ nav {
                 padding-left: 1.75rem;
             }
         }
+    }
+
+    &.open .dropdown-menu,
+    &:focus-within .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
     &:hover {
@@ -1195,7 +1213,68 @@ nav {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(192, 86, 33, 0.5);
         }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
     }
+}
+
+/* Campo trampa anti-spam: oculto para personas, visible para bots */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.contact-form .field-error {
+    display: none;
+    color: #ffe3d6;
+    background: rgba(0, 0, 0, 0.15);
+    border-left: 3px solid #ffb199;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.35rem;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+}
+
+.contact-form .form-group.invalid .field-error {
+    display: block;
+}
+
+.contact-form .form-group.invalid input,
+.contact-form .form-group.invalid select,
+.contact-form .form-group.invalid textarea {
+    border-color: #ffb199;
+    box-shadow: 0 0 0 3px rgba(255, 140, 100, 0.25);
+}
+
+.form-status {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 0.6rem;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.form-status.visible {
+    display: block;
+}
+
+.form-status.success {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--verde-oscuro);
+    font-weight: 500;
+}
+
+.form-status.error {
+    background: rgba(255, 255, 255, 0.95);
+    color: #a5341a;
+    font-weight: 500;
 }
 
 .map-container {
