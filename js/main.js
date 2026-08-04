@@ -72,7 +72,7 @@ function resetInterval() {
   }
 }
 
-function initSlider() {
+export function initSlider() {
   slides = Array.from(document.querySelectorAll(".hero-slide"));
   dots = Array.from(document.querySelectorAll(".dot"));
 
@@ -362,7 +362,10 @@ function initContactForm() {
    Inicialización
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
-  initSlider();
+  // El slider del index ya no se inicializa aquí: sus slides ahora
+  // se generan dinámicamente desde JSON (ver js/pages/index.js), y
+  // ese script es quien llama a initSlider() una vez que ya insertó
+  // los .hero-slide/.dot en el DOM.
   initHeaderScroll();
   initDropdowns();
   initSmoothScroll();

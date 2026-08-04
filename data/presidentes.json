@@ -1,0 +1,52 @@
+[
+  {
+    "img": "../images/preidentes/rogelio_ortiz_zuniga.png",
+    "nombre": "Rogelio Ortiz Zuñiga",
+    "periodo": "2025-2027"
+  },
+  {
+    "img": "../images/preidentes/humberto_salinas_barrera.jpg",
+    "nombre": "Humberto Salinas Barrera",
+    "periodo": "2021-2025"
+  },
+  {
+    "img": "../images/preidentes/antonio_cayetano_garza_garza.jpg",
+    "nombre": "Antonio Cayetano Garza Garza",
+    "periodo": "2019-2021"
+  },
+  {
+    "img": "../images/preidentes/luis_francisco_villarreal_galvan.png",
+    "nombre": "Luis Francisco Villarreal Galván",
+    "periodo": "2017-2018"
+  },
+  {
+    "img": "../images/preidentes/jose_dionisio_rebollo_nieto.png",
+    "nombre": "José Dionisio Rebollo Nieto",
+    "periodo": "2015-2017"
+  },
+  {
+    "img": "../images/preidentes/raul_mario_montemayor_martinez.png",
+    "nombre": "Raúl Mario Montemayor Martínez",
+    "periodo": "2013-2015"
+  },
+  {
+    "img": "../images/preidentes/francisco_javier_guerrero_chavez.png",
+    "nombre": "Francisco Javier Guerrero Chávez",
+    "periodo": "2011-2013"
+  },
+  {
+    "img": "../images/preidentes/rogelio_ortiz_zuniga.png",
+    "nombre": "Rogelio Ortiz Zuñiga",
+    "periodo": "2008-2010"
+  },
+  {
+    "img": "../images/preidentes/roberto_angel_gonzalez_trevino.png",
+    "nombre": "Roberto Ángel González Treviño",
+    "periodo": "2006-2008"
+  },
+  {
+    "img": "../images/preidentes/alfonso_morcos_flores.png",
+    "nombre": "Alfonso Morcos Flores",
+    "periodo": "2004-2006"
+  }
+]

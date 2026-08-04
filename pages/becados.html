@@ -129,32 +129,15 @@
 	<hr class="separator">
 
 	<section style="padding: 15px 1rem;">
-		<div class="imgdiplomados">
-			<img src="../images/fotos becados/becados 1.jpg" alt="" loading="lazy" decoding="async">
-			<img src="../images/fotos becados/becados 9.jpg" alt="" loading="lazy" decoding="async">
-			<img src="../images/fotos becados/becados 3.jpg" alt="" loading="lazy" decoding="async">
-			<img src="../images/fotos becados/becados 10.jpg" alt="" loading="lazy" decoding="async">
-		</div>
+		<div class="imgdiplomados-wrapper" id="gallery-becados"></div>
 	</section>
 
-	<section style="padding: 15px 1rem;">
-		<div class="imgdiplomados">
-			<img src="../images/fotos becados/ecados 5.jpg" alt="" loading="lazy" decoding="async">
-			<img src="../images/fotos becados/becados 6.jpg" alt="" loading="lazy" decoding="async">
-			<img src="../images/fotos becados/becados 7.jpg" alt="" loading="lazy" decoding="async">
-			<img src="../images/fotos becados/becados 8.jpg" alt="" loading="lazy" decoding="async">
-		</div>
-	</section>
+	<script type="module">
+		import { loadGallery } from "../js/gallery.js";
+		loadGallery("gallery-becados", "../data/galerias/becados.json");
+	</script>
 
-	<section style="padding: 15px 1rem;">
-		<div class="imgdiplomados">
-			<img style="max-width:400px;" src="../images/fotos becados/becados 2.jpg" alt="" loading="lazy" decoding="async">
-			<img src="../images/fotos becados/becados 4.jpg" alt="" loading="lazy" decoding="async">
-		</div>
-	</section>
-
-
-	<hr class="separator">
+<hr class="separator">
 	<!-- Footer -->
 	<footer id="contacto">
 		<div class="footer-content">

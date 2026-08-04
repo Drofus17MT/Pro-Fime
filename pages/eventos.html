@@ -148,33 +148,14 @@
 	</section>
 
 	<section style="max-width: 1800px; width: 100%; margin: 10px auto 0; padding: 0 1rem; box-sizing: border-box; display:flex; justify-content:center; align-items:center;">
-			 <div class="allies-logos" style="display:flex; justify-content:center; align-items:center; margin: 0 auto; width: fit-content; max-width: 100%; margin-bottom: 2rem;">
-					<div class="eventos-img-slide">
-						<img src="../images/Eventos/EventoJulioBecados1.jpeg" alt="Becados1" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados2.jpeg" alt="Becados2" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados3.jpg" alt="Becados3" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados4.jpeg" alt="Becados4" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados5.jpeg" alt="Becados5" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados6.jpg" alt="Becados6" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados7.jpeg" alt="Becados7" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados8.jpeg" alt="Becados8" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados9.jpg" alt="Becados9" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados10.jpeg" alt="Becados10" loading="lazy" decoding="async">
-					</div>
-					<div class="eventos-img-slide">
-						<img src="../images/Eventos/EventoJulioBecados1.jpeg" alt="Becados1" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados2.jpeg" alt="Becados2" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados3.jpg" alt="Becados3" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados4.jpeg" alt="Becados4" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados5.jpeg" alt="Becados5" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados6.jpg" alt="Becados6" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados7.jpeg" alt="Becados7" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados8.jpeg" alt="Becados8" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados9.jpg" alt="Becados9" loading="lazy" decoding="async">
-						<img src="../images/Eventos/EventoJulioBecados10.jpeg" alt="Becados10" loading="lazy" decoding="async">
-					</div>
-			</div>
+			 <div class="allies-logos" id="gallery-eventos-julio" style="display:flex; justify-content:center; align-items:center; margin: 0 auto; width: fit-content; max-width: 100%; margin-bottom: 2rem;"></div>
 	</section>
+
+	<script type="module">
+		import { loadMarquee } from "../js/gallery.js";
+		loadMarquee("gallery-eventos-julio", "../data/eventos-julio-becados.json", "eventos-img-slide");
+	</script>
+
 
 
 	<section style="background: var(--gris-claro);padding: 10px 1rem;">
