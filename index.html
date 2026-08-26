@@ -16,7 +16,6 @@
 	<link rel="stylesheet" href="./styles.css" />
 
 	<script type="module" src="./js/main.js"></script>
-	<script type="module" src="./js/pages/index.js"></script>
 </head>
 
 <body>
@@ -136,10 +135,52 @@
 
 	<!-- Hero Section with Carousel -->
 	<section class="hero" id="inicio">
-		<div class="hero-slider" id="hero-slider"></div>
+		<div class="hero-slider">
+			<!-- Proponer otro tipo de letra para el titulo principal -->
+
+			<!-- Slide 1 -->
+			<div class="hero-slide active">
+				<div class="hero-image" style="background-image: url('images/slide/slide_1.png');">
+					<div class="hero-overlay"></div>
+				</div>
+				<div class="hero-content">
+					<h1 class="hero-title">Desayuno de la Fraternidad</h1>
+					<p class="hero-subtitle">Cartas de agradecimiento a las generaciones que realizaron a la FUNDACION
+						PROFIME | 18 de octubre 2025</p>
+
+				</div>
+			</div>
+
+			<!-- Slide 2 -->
+			<div class="hero-slide">
+				<div class="hero-image" style="background-image: url('images/slide/slide_2.png');">
+					<div class="hero-overlay"></div>
+				</div>
+				<div class="hero-content">
+					<h1 class="hero-title">Cumplimos 22 años</h1>
+					<p class="hero-subtitle">Fundación PROFIME 2025</p>
+				</div>
+			</div>
+
+			<!-- Slide 3 -->
+			<div class="hero-slide">
+				<div class="hero-image" style="background-image: url('images/slide/slide_3.png');">
+					<div class="hero-overlay">
+					</div>
+				</div>
+				<div class="hero-content">
+					<h1 class="hero-title">Carta de Agradecimiento</h1>
+					<p class="hero-subtitle">Generaciones donadoras a la Fundación PROFIME | 29 de octubre 2025</p>
+				</div>
+			</div>
+		</div>
 
 		<!-- Dots Indicator -->
-		<div class="slider-dots" id="slider-dots"></div>
+		<div class="slider-dots">
+			<span class="dot active" data-slide="0"></span>
+			<span class="dot" data-slide="1"></span>
+			<span class="dot" data-slide="2"></span>
+		</div>
 
 		<!-- CTA Button -->
 		<div class="hero-cta-container">
@@ -287,7 +328,56 @@
 				alrededor
 				del mundo.
 			</p>
-			<div class="countries-grid" id="gallery-paises"></div>
+			<div class="countries-grid">
+				<div class="country-card">
+					<img src="images/flags/francia.png" class="country-flag" alt="🇫🇷" loading="lazy" decoding="async">
+					<h4 class="country-name">Francia</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/espana.png" class="country-flag" alt="🇪🇸" loading="lazy" decoding="async">
+					<h4 class="country-name">España</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/alemania.png" class="country-flag" alt="🇩🇪" loading="lazy" decoding="async">
+					<h4 class="country-name">Alemania</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/inglaterra.png" class="country-flag" alt="🇬🇧" loading="lazy" decoding="async">
+					<h4 class="country-name">Inglaterra</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/canada.png" class="country-flag" alt="🇨🇦" loading="lazy" decoding="async">
+					<h4 class="country-name">Canadá</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/chile.png" class="country-flag" alt="🇨🇱" loading="lazy" decoding="async">
+					<h4 class="country-name">Chile</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/estados-unidos.png" class="country-flag" alt="🇺🇸" loading="lazy" decoding="async">
+					<h4 class="country-name">EE.UU.</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/corea-del-sur.png" class="country-flag" alt="🇰🇷" loading="lazy" decoding="async">
+					<h4 class="country-name">Corea S.</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/irlanda.png" class="country-flag" alt="🇮🇪" loading="lazy" decoding="async">
+					<h4 class="country-name">Irlanda</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/colombia.png" class="country-flag" alt="🇨🇴" loading="lazy" decoding="async">
+					<h4 class="country-name">Colombia</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/brasil.png" class="country-flag" alt="🇧🇷" loading="lazy" decoding="async">
+					<h4 class="country-name">Brasil</h4>
+				</div>
+				<div class="country-card">
+					<img src="images/flags/australia.png" class="country-flag" alt="🇦🇺" loading="lazy" decoding="async">
+					<h4 class="country-name">Australia</h4>
+				</div>
+			</div>
 		</div>
 	</section>
 	<hr class="separator">
@@ -298,7 +388,26 @@
 			<h2 class="section-title">Nuestros Aliados Estratégicos</h2>
 			<p class="section-subtitle">Colaboramos con empresas líderes para ofrecer mejores oportunidades a nuestros
 				estudiantes</p>
-			<div class="allies-logos" id="gallery-aliados"></div>
+			<div class="allies-logos">
+				<div class="allies-logos-slide">
+					<img src="images/aliados/Katcon.png" alt="Katcon" loading="lazy" decoding="async">
+					<img src="images/aliados/Meritor.png" alt="Meritor" loading="lazy" decoding="async">
+					<img src="images/aliados/Metalsa.png" alt="Metalsa" loading="lazy" decoding="async">
+					<img src="images/aliados/Nemak.png" alt="Nemak" loading="lazy" decoding="async">
+					<img src="images/aliados/Ternium.png" alt="Ternium" loading="lazy" decoding="async">
+					<img src="images/aliados/Viakable.png" alt="Viakable" loading="lazy" decoding="async">
+					<img src="images/aliados/Vitro.png" alt="Vitro" loading="lazy" decoding="async">
+				</div>
+				<div class="allies-logos-slide">
+					<img src="images/aliados/Katcon.png" alt="Katcon" loading="lazy" decoding="async">
+					<img src="images/aliados/Meritor.png" alt="Meritor" loading="lazy" decoding="async">
+					<img src="images/aliados/Metalsa.png" alt="Metalsa" loading="lazy" decoding="async">
+					<img src="images/aliados/Nemak.png" alt="Nemak" loading="lazy" decoding="async">
+					<img src="images/aliados/Ternium.png" alt="Ternium" loading="lazy" decoding="async">
+					<img src="images/aliados/Viakable.png" alt="Viakable" loading="lazy" decoding="async">
+					<img src="images/aliados/Vitro.png" alt="Vitro" loading="lazy" decoding="async">
+				</div>
+			</div>
 		</div>
 	</section>
 	<hr class="separator">
