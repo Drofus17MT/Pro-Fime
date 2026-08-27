@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/vaqttcihl79p/public_html
-    - /bin/cp -R Vite-project/dist/* $DEPLOYPATH
+    - /bin/cp -R vite-project/dist/* $DEPLOYPATH
