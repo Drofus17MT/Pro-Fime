@@ -1,6 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/vaqttcihl79p/public_html
-    - cd vite-project && /usr/bin/npm install && /usr/bin/npm run build
-    - /bin/cp -R vite-project/dist/* $DEPLOYPATH
+    - /bin/mkdir -p /home/vaqttcihl79p/public_html/assets
+    - cd /home/vaqttcihl79p/public_html/vite-project && /usr/bin/npm install
+    - cd /home/vaqttcihl79p/public_html/vite-project && /usr/bin/npm run build
+    - /bin/cp -Rf /home/vaqttcihl79p/public_html/vite-project/dist/* /home/vaqttcihl79p/public_html/
