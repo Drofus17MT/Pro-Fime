@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 const NAV_ITEMS = [
@@ -26,7 +27,14 @@ const NAV_ITEMS = [
       { label: "18° Diplomado PROFIME", to: "/diplomado/18" },
     ],
   },
-  { label: "EVENTOS", to: "/eventos" },
+  {
+    label: "EVENTOS",
+    href: "#eventos",
+    children: [
+      { label: "Eventos", to: "/eventos" },
+      { label: "Juntas", to: "/juntas" },
+    ],
+  },
   { label: "BOLETINES", to: "/boletines" },
   {
     label: "GALERÍA",
@@ -48,11 +56,29 @@ const NAV_ITEMS = [
 ];
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleMenu = useCallback(() => setMenuOpen((v) => !v), []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const handleDropdown = (label) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
   return (
     <header id="header">
       <nav>
         <div className="logo-container">
-          <Link to="/" className="logo-link" aria-label="Ir a la página de inicio de Fundación PROFIME">
+          <Link
+            to="/"
+            className="logo-link"
+            aria-label="Ir a la página de inicio de Fundación PROFIME"
+          >
             <img
               src="/images/logos/logo_profime.png"
               alt="Logo PROFIME"
@@ -62,20 +88,40 @@ export default function Header() {
             />
           </Link>
         </div>
-        <div className="nav-right">
+        <button
+          className={`hamburger${menuOpen ? " active" : ""}`}
+          onClick={toggleMenu}
+          aria-label="Abrir menú"
+          aria-expanded={menuOpen}
+        >
+          <span /><span /><span />
+        </button>
+        {menuOpen && <div className="nav-overlay visible" onClick={toggleMenu} />}
+        <div className={`nav-right${menuOpen ? " open" : ""}`}>
           <ul className="nav-links">
             {NAV_ITEMS.map((item) => (
-              <li key={item.label} className={item.children ? "dropdown" : undefined}>
+              <li
+                key={item.label}
+                className={item.children ? "dropdown" : undefined}
+              >
                 {item.children ? (
                   <>
-                    <a href={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleDropdown(item.label);
+                      }}
+                    >
                       {item.label}
                       <span className="arrow">▾</span>
                     </a>
                     <ul className="dropdown-menu">
                       {item.children.map((child) => (
                         <li key={child.to}>
-                          <Link to={child.to}>{child.label}</Link>
+                          <Link to={child.to} onClick={() => setMenuOpen(false)}>
+                            {child.label}
+                          </Link>
                         </li>
                       ))}
                     </ul>

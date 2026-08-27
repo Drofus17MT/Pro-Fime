@@ -1,0 +1,35 @@
+{
+  "eventos": [
+    {
+      "id": "julio-2026",
+      "title": "Bienvenida y Despedida de Alumnos Becados con Movilidad Académica - Julio 2026",
+      "description": "A inicios del mes de julio, miembros y consejeros de la fundación PROFIME nos reunimos junto con los alumnos a los que se les otorgó la beca de movilidad académica, tanto con aquellos que vuelven de su estancia en el extranjero, como con los que se preparan para partir a sus destinos de intercambio. Fue un momento de alegría y emoción, donde compartimos experiencias y anécdotas de sus vivencias académicas y culturales. La Fundación PROFIME reafirma su compromiso de apoyar a los estudiantes en su desarrollo académico y personal, y se les desea el mayor de los éxitos en sus futuros proyectos y estudios. ¡Felicitaciones a todos los alumnos becados y que sigan alcanzando grandes logros en su camino académico!",
+      "credit": "Agradecemos al Ingeniero Eugenio Serrano por su participación en el evento y por compartir las fotografías capturadas por él.",
+      "images": [
+        { "src": "/images/Eventos/EventoJulioBecados1.jpeg", "alt": "Becados Julio 1" },
+        { "src": "/images/Eventos/EventoJulioBecados2.jpeg", "alt": "Becados Julio 2" },
+        { "src": "/images/Eventos/EventoJulioBecados3.jpg", "alt": "Becados Julio 3" },
+        { "src": "/images/Eventos/EventoJulioBecados4.jpeg", "alt": "Becados Julio 4" },
+        { "src": "/images/Eventos/EventoJulioBecados5.jpeg", "alt": "Becados Julio 5" },
+        { "src": "/images/Eventos/EventoJulioBecados6.jpg", "alt": "Becados Julio 6" },
+        { "src": "/images/Eventos/EventoJulioBecados7.jpeg", "alt": "Becados Julio 7" },
+        { "src": "/images/Eventos/EventoJulioBecados8.jpeg", "alt": "Becados Julio 8" },
+        { "src": "/images/Eventos/EventoJulioBecados9.jpg", "alt": "Becados Julio 9" },
+        { "src": "/images/Eventos/EventoJulioBecados10.jpeg", "alt": "Becados Julio 10" }
+      ],
+      "imageLayout": "scroll"
+    },
+    {
+      "id": "junio-2026",
+      "title": "Clase del Recuerdo 57 Aniversario - Generación 1964 - 69 IMA - 19 Junio 2026",
+      "description": "La fundación PROFIME tuvo el honor de participar en la Clase del Recuerdo con motivo del 57 Aniversario de la Generación 1964-69 IMA, celebrada el 19 de junio de 2026. Fue un evento lleno de nostalgia y camaradería, donde los exalumnos compartieron recuerdos y experiencias de su tiempo en la Facultad de Ingeniería Mecánica y Eléctrica. El presidente de la fundación, el Ing. Rogelio Ortiz Zúñiga, y el Ing. César Villafuerte González, secretario de la fundación, estuvieron presentes para saludar a los exalumnos y compartir con ellos este momento especial.",
+      "images": [
+        { "src": "/images/Fotos generaciones donadoras/19Junio2026.JPG", "alt": "19 Junio 2026" },
+        { "src": "/images/Fotos generaciones donadoras/EntregaCheque19Junio2026.jpg", "alt": "Entrega Cheque" },
+        { "src": "/images/Eventos/EventoJunio19CR1.jpg", "alt": "Evento 19 Junio" },
+        { "src": "/images/Eventos/EventoJunio19CR2.jpg", "alt": "Evento 19 Junio" }
+      ],
+      "imageLayout": "grid"
+    }
+  ]
+}

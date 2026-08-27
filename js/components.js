@@ -62,6 +62,11 @@ export function renderHeader() {
             <img src="${b}images/logos/logo_profime.png" alt="Logo PROFIME" class="logo-img" width="797" height="378">
           </a>
         </div>
+        <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div class="nav-right">
           <ul class="nav-links">
             <li class="dropdown">
@@ -86,7 +91,13 @@ export function renderHeader() {
                 <li><a href="${b}pages/18-diplomado-en-uso-eficiente-de-energia.html">18° Diplomado PROFIME</a></li>
               </ul>
             </li>
-            <li><a href="${b}pages/eventos.html">EVENTOS</a></li>
+            <li class="dropdown">
+              <a href="#eventos">EVENTOS<span class="arrow">▾</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="${b}pages/eventos.html">Eventos</a></li>
+                <li><a href="${b}pages/juntas.html">Juntas</a></li>
+              </ul>
+            </li>
             <li><a href="${b}pages/boletines.html">BOLETINES</a></li>
             <li class="dropdown">
               <a href="#galeria">GALERÍA<span class="arrow">▾</span></a>

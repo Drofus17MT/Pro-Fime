@@ -1,0 +1,15 @@
+{
+  "images": [
+    { "src": "/images/fotos becados/becados 1.jpg", "alt": "Becados" },
+    { "src": "/images/fotos becados/becados 9.jpg", "alt": "Becados" },
+    { "src": "/images/fotos becados/becados 3.jpg", "alt": "Becados" },
+    { "src": "/images/fotos becados/becados 10.jpg", "alt": "Becados" },
+    { "src": "/images/fotos becados/ecados 5.jpg", "alt": "Becados" },
+    { "src": "/images/fotos becados/becados 6.jpg", "alt": "Becados" },
+    { "src": "/images/fotos becados/becados 7.jpg", "alt": "Becados" },
+    { "src": "/images/fotos becados/becados 8.jpg", "alt": "Becados" },
+    { "src": "/images/fotos becados/becados 2.jpg", "alt": "Becados", "style": { "maxWidth": "400px" } },
+    { "src": "/images/fotos becados/becados 4.jpg", "alt": "Becados" }
+  ],
+  "gridColumns": 4
+}

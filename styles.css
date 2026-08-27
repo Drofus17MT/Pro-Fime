@@ -1935,13 +1935,49 @@ footer {
     }
 }
 
-/* Responsive */
-@media (min-width: 880px) {
-    .bars-stage {
-        grid-template-columns: 1fr 360px !important;
-    }
+/* =========================================================
+   HAMBURGER MENU BUTTON
+   ========================================================= */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+
 }
 
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--gris-oscuro);
+    border-radius: 2px;
+    transition: var(--transition);
+    margin: 3px 0;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET (max-width: 1024px)
+   ========================================================= */
 @media (max-width: 1024px) {
     .nav-links {
         gap: 1rem;
@@ -1963,24 +1999,159 @@ footer {
         grid-template-columns: 1fr !important;
         gap: 3rem;
     }
+
+    .part {
+        padding: 60px 1rem;
+    }
+
+    .part-gris {
+        padding: 60px 1rem;
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .countries-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .logros-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .imgdiplomados img {
+        max-width: 250px;
+        max-height: 200px;
+    }
+
+    .contenedor-imagenes img {
+        max-width: 400px;
+        max-height: 180px;
+    }
+
+    .eventos-img-slide img {
+        height: 280px;
+        width: 400px;
+    }
+
+    .allies-logos-slide img {
+        height: 80px;
+        width: 160px;
+    }
 }
 
+/* =========================================================
+   RESPONSIVE - MOBILE (max-width: 768px)
+   ========================================================= */
 @media (max-width: 768px) {
+    /* --- Hamburger visible, nav oculto --- */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: white;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+        padding: 80px 2rem 2rem;
+        overflow-y: auto;
+        transition: right 0.3s ease;
+        z-index: 1050;
+    }
+
+    .nav-right.open {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 0.9rem 0;
+        font-size: 1rem;
+        color: var(--gris-oscuro);
+        font-weight: 500;
+    }
+
+    .nav-links .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: var(--gris-claro);
+        border-radius: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-links .dropdown.open .dropdown-menu {
+        max-height: 500px;
+    }
+
+    .nav-links .dropdown-menu li a {
+        padding-left: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .nav-links .arrow {
+        transition: transform 0.3s;
+    }
+
+    .nav-links .dropdown.open .arrow {
+        transform: rotate(180deg);
+    }
+
+    /* --- Overlay --- */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1040;
+    }
+
+    .nav-overlay.visible {
+        display: block;
+    }
+
+    /* --- Top Bar --- */
     .top-bar-content {
         flex-direction: column;
         gap: 0.5rem;
         text-align: center;
+        padding: 0 1rem;
     }
 
-    .nav-links,
-    .search-container {
-        display: none;
-    }
-
-    .logo-img {
-        height: 45px;
-    }
-
+    /* --- Header --- */
     header {
         top: 70px;
 
@@ -1989,47 +2160,173 @@ footer {
         }
     }
 
+    nav {
+        padding: 0 1rem;
+    }
+
+    .logo-img {
+        height: 45px;
+    }
+
+    /* --- Hero --- */
     .hero {
         margin-top: 136px;
-        height: 500px;
+        height: 400px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
     }
 
     .slider-arrow {
-        padding: 0.7rem;
+        padding: 0.5rem;
     }
 
     .slider-arrow-left {
-        left: 1rem;
+        left: 0.5rem;
     }
 
     .slider-arrow-right {
-        right: 1rem;
+        right: 0.5rem;
     }
 
     .slider-dots {
-        bottom: 100px;
+        bottom: 80px;
     }
 
     .hero-cta-container {
-        bottom: 30px;
+        bottom: 20px;
     }
 
-    .values-grid,
-    .allies-grid,
-    .president-grid {
+    .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* --- Hero Contact --- */
+    .hero-contact {
+        margin-top: 136px;
+        height: 200px;
+    }
+
+    /* --- Sections --- */
+    .part {
+        padding: 40px 1rem;
+    }
+
+    .part-gris {
+        padding: 40px 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    /* --- Grids --- */
+    .values-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .countries-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .country-card {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        padding: 0.8rem;
+    }
+
+    .country-flag {
+        width: 100%;
+        max-width: 60px;
+        height: auto;
+        margin-bottom: 0.3rem;
+    }
+
+    .country-name {
+        font-size: 0.8rem;
+    }
+
+    .logros-grid {
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
-    .hero-contact {
-        margin-top: 136px;
-        height: 250px;
+    .logro-item {
+        padding: 1rem;
+        gap: 1rem;
     }
 
+    .logro-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    .logro-text {
+        font-size: 0.9rem;
+    }
+
+    /* --- Images --- */
+    .imgdiplomados {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .imgdiplomados img {
+        max-width: 100%;
+        max-height: 200px;
+        width: calc(50% - 10px);
+        min-width: 140px;
+    }
+
+    .contenedor-imagenes {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .contenedor-imagenes img {
+        max-width: 100%;
+        max-height: 160px;
+        width: calc(50% - 10px);
+        min-width: 140px;
+    }
+
+    .eventos-img-slide img {
+        height: 200px;
+        width: 280px;
+    }
+
+    .allies-logos-slide img {
+        height: 60px;
+        width: 120px;
+        padding: 0 15px;
+    }
+
+    /* --- President cards --- */
+    .president-card {
+        padding: 1.5rem;
+    }
+
+    .president-icon img {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* --- Contact --- */
     .contact-cards {
         grid-template-columns: 1fr;
     }
@@ -2038,58 +2335,51 @@ footer {
         grid-template-columns: 1fr !important;
     }
 
-    .contact-form {
-        padding: 1.5rem;
-    }
-
     .map-container {
-        height: 350px !important;
+        height: 300px !important;
     }
 
-    .contact-form-section {
-        padding: 80px 2rem;
-    }
-
+    /* --- Donation --- */
     .donation-section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .donation-benefits-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
+    }
+
+    .donation-benefit-card {
+        padding: 1.5rem;
     }
 
     .donation-call-to-action {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
     }
 
     .donation-call-to-action h3 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .donation-info-card {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
     }
 
     .donation-info-header {
         flex-direction: column;
         text-align: center;
-        gap: 1rem;
-    }
-
-    .donation-info-header h3 {
-        font-size: 1.3rem;
+        gap: 0.8rem;
     }
 
     .account-info-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 0.3rem;
     }
 
     .account-number,
     .account-clabe {
-        font-size: 1.1rem;
+        font-size: 1rem;
         word-break: break-all;
     }
 
@@ -2098,41 +2388,185 @@ footer {
         text-align: center;
     }
 
-    .country-card {
-        height: auto;
-        aspect-ratio: 1 / 1;
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    /* --- Boletines --- */
+    embed {
+        height: 500px;
     }
 
-    .country-flag {
-        width: 100%;
-        max-width: 80px;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        margin-bottom: 0.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    /* --- Footer --- */
+    footer {
+        padding: 3rem 1rem 1.5rem;
     }
 
-    .country-flag img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-    .country-name {
-        height: auto;
-        font-size: 0.85rem;
-        text-align: center;
-        margin-top: 0.5rem;
+    .footer-logo {
+        height: 70px;
     }
 }
 
+/* =========================================================
+   RESPONSIVE - MOBILE PEQUEÑO (max-width: 480px)
+   ========================================================= */
+@media (max-width: 480px) {
+    .top-bar {
+        font-size: 0.8rem;
+        padding: 0.5rem 0;
+    }
+
+    .social-links a {
+        width: 28px;
+        height: 28px;
+    }
+
+    .logo-img {
+        height: 38px;
+    }
+
+    .hero {
+        height: 320px;
+    }
+
+    .hero-title {
+        font-size: 1.4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .hero-contact {
+        height: 160px;
+    }
+
+    .hero-contact .hero-title {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .countries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .country-card {
+        padding: 0.5rem;
+    }
+
+    .country-flag {
+        max-width: 45px;
+    }
+
+    .country-name {
+        font-size: 0.7rem;
+    }
+
+    .imgdiplomados img {
+        max-height: 140px;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .contenedor-imagenes img {
+        max-height: 120px;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .eventos-img-slide img {
+        height: 160px;
+        width: 220px;
+    }
+
+    .allies-logos-slide img {
+        height: 50px;
+        width: 100px;
+        padding: 0 10px;
+    }
+
+    .contenedor-imagengrande img {
+        width: 95% !important;
+        height: auto !important;
+    }
+
+n    .contact-cards .value-card {
+        padding: 1.5rem;
+    }
+
+    .donation-section-title {
+        font-size: 1.5rem;
+    }
+
+    .donation-intro-text {
+        font-size: 0.9rem;
+    }
+
+    .donation-benefit-card {
+        padding: 1.2rem;
+    }
+
+    .donation-call-to-action h3 {
+        font-size: 1.1rem;
+    }
+
+    .donation-call-to-action p {
+        font-size: 0.9rem;
+    }
+
+    .donation-account-card {
+        padding: 1rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+    }
+
+    .values-grid .value-card {
+        padding: 1.5rem;
+    }
+
+    .values-grid .value-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .president-card h3 {
+        font-size: 1rem;
+    }
+
+    .president-card p {
+        font-size: 0.85rem;
+    }
+
+    .embed,
+    embed {
+        height: 400px;
+    }
+
+    footer .footer-section h3 {
+        font-size: 1rem;
+    }
+
+    footer .footer-section p {
+        font-size: 0.85rem;
+    }
+
+    .footer-logo {
+        height: 60px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - BARRAS / CHARTS (max-width: 600px)
+   ========================================================= */
 @media (max-width: 600px) {
     .bar-grid {
         height: 220px !important;
@@ -2146,58 +2580,27 @@ footer {
     .benefited-students-container .card {
         padding: 1.5rem;
     }
+
+    .bars-wrapper {
+        flex-direction: column;
+    }
+
+    .donut-legend {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+    }
 }
 
-@media (max-width: 480px) {
-
-    .contact-info-section,
-    .contact-form-section,
-    .map-section {
-        padding: 50px 1rem;
+/* =========================================================
+   DESKTOP GRANDE (min-width: 880px) - charts layout
+   ========================================================= */
+@media (min-width: 880px) {
+    .bars-stage {
+        grid-template-columns: 1fr 360px !important;
     }
-
-    .contact-card {
-        padding: 2rem 1.5rem;
-    }
-
-    .donation-section-title {
-        font-size: 1.75rem;
-    }
-
-    .donation-intro-text {
-        font-size: 1rem;
-    }
-
-    .donation-benefit-card {
-        padding: 1.5rem;
-    }
-
-    .donation-call-to-action {
-        padding: 1.5rem 1rem;
-    }
-
-    .donation-call-to-action h3 {
-        font-size: 1.3rem;
-    }
-
-    .donation-call-to-action p {
-        font-size: 1rem;
-    }
-
-    .donation-info-card {
-        padding: 1.5rem 1rem;
-    }
-
-    .donation-account-card {
-        padding: 1.5rem;
-    }
-
-    .about,
-    .values,
-    .countries,
-    .allies,
-    .achievements,
-    .donation {
-        padding: 60px 1rem;
+}
+    .bars-stage {
+        grid-template-columns: 1fr 360px !important;
     }
 }

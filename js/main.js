@@ -361,6 +361,59 @@ function initContactForm() {
 }
 
 /* =========================================================
+   Menú hamburguesa (móvil)
+   ========================================================= */
+function initHamburger() {
+  const hamburger = document.querySelector(".hamburger");
+  const navRight = document.querySelector(".nav-right");
+  if (!hamburger || !navRight) return;
+
+  // Crear overlay
+  let overlay = document.querySelector(".nav-overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "nav-overlay";
+    document.body.appendChild(overlay);
+  }
+
+  function toggleMenu() {
+    const isOpen = navRight.classList.toggle("open");
+    hamburger.classList.toggle("active", isOpen);
+    hamburger.setAttribute("aria-expanded", isOpen);
+    overlay.classList.toggle("visible", isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
+
+  function closeMenu() {
+    navRight.classList.remove("open");
+    hamburger.classList.remove("active");
+    hamburger.setAttribute("aria-expanded", "false");
+    overlay.classList.remove("visible");
+    document.body.style.overflow = "";
+  }
+
+  hamburger.addEventListener("click", toggleMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  // Cerrar con Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // Cerrar al hacer clic en un enlace del menú
+  navRight.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) closeMenu();
+    });
+  });
+
+  // Cerrar si se agranda la ventana
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
+}
+
+/* =========================================================
    Inicialización
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
@@ -370,6 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSlider();
   initHeaderScroll();
   initDropdowns();
+  initHamburger();
   initSmoothScroll();
   initSearch();
   initLogoFallback();

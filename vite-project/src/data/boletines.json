@@ -1,0 +1,11 @@
+{
+  "boletines": [
+    { "month": "Julio 2026", "file": "Boletin-PROFIME-Julio-2026.pdf" },
+    { "month": "Junio 2026", "file": "Boletin-PROFIME-Junio-2026.pdf" },
+    { "month": "Mayo 2026", "file": "Boletin-PROFIME-Mayo-2026.pdf" },
+    { "month": "Abril 2026", "file": "Boletin-PROFIME-Abril-2026.pdf" },
+    { "month": "Marzo 2026", "file": "Boletin-PROFIME-Marzo-2026.pdf" },
+    { "month": "Febrero 2026", "file": "Boletin-PROFIME-Febrero-2026.pdf" },
+    { "month": "Enero 2026", "file": "Boletin-PROFIME-Enero-2026.pdf" }
+  ]
+}

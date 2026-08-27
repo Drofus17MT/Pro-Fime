@@ -15,6 +15,7 @@ import HistorialDonacionesPage from "./pages/HistorialDonacionesPage";
 import HistorialPresidentesPage from "./pages/HistorialPresidentesPage";
 import LogrosPage from "./pages/LogrosPage";
 import AlumnosBeneficiadosPage from "./pages/AlumnosBeneficiadosPage";
+import JuntasPage from "./pages/JuntasPage";
 import "./App.css";
 
 function Layout({ children }) {
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/historial-de-presidentes" element={<HistorialPresidentesPage />} />
           <Route path="/logros" element={<LogrosPage />} />
           <Route path="/alumnos-beneficiados" element={<AlumnosBeneficiadosPage />} />
+          <Route path="/juntas" element={<JuntasPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

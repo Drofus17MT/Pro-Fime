@@ -5,7 +5,7 @@ export default function ContactoPage() {
     <>
       <PageHero
         title="Contáctanos"
-        subtitle="📲 Estamos aquí para ayudarte"
+        subtitle="Estamos aquí para ayudarte"
       />
       <hr className="separator" />
 

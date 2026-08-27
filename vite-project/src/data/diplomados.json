@@ -1,0 +1,24 @@
+{
+  "diplomados": {
+    "4": {
+      "title": "4° Diplomado | Fundación PROFIME",
+      "subtitle": "Revive el curso impartido por nuestros expertos colaboradores",
+      "folder": "4D",
+      "count": 20
+    },
+    "17": {
+      "title": "17° Diplomado | Fundación PROFIME",
+      "subtitle": "Revive el curso impartido por nuestros expertos colaboradores",
+      "folder": "17D",
+      "count": 14
+    },
+    "18": {
+      "title": "18° Diplomado | Uso Eficiente de la Energía",
+      "subtitle": "Revive el curso impartido por nuestros expertos colaboradores",
+      "folder": "18D",
+      "count": 20
+    }
+  },
+  "imagesPerRow": 4,
+  "imageBasePath": "/images/Fotos_diplomados"
+}
