@@ -5,7 +5,7 @@ export default function JuntasPage() {
     <>
       <PageHero
         title="Juntas | Fundación PROFIME"
-        subtitle="🤝 Reuniones y juntas de trabajo de la fundación"
+        subtitle="Reuniones y juntas de trabajo de la fundación"
       />
       <hr className="separator" />
 

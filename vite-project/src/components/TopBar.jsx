@@ -2,7 +2,7 @@ export default function TopBar() {
   return (
     <div className="top-bar">
       <div className="top-bar-content">
-        <span style={{ fontWeight: 500 }}>Línea de Contacto PROFIME: 81-3246-0363</span>
+        <span style={{ fontWeight: 500 }}>Línea de Contacto PROFIME: <a href="tel:+528132460363" className="contact-link" style={{ color: 'white' }}>81-3246-0363</a></span>
         <div className="social-links">
           <a
             href="https://www.linkedin.com/company/fundacion-profimeuanl/"

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
 	
 	<link rel="icon" type="image/png" href="../images/logos/logo_profime.png" />
 	<meta name="referrer" content="strict-origin-when-cross-origin">
@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="../styles.css" />
 
 	<script type="module" src="../js/main.js"></script>
+	<script>if(localStorage.getItem("dark-mode")==="true")document.documentElement.classList.add("dark-mode")</script>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
 	<section class="hero-contact">
 		<div class="hero-content">
 			<h1 class="hero-title">Contáctanos</h1>
-			<p class="hero-subtitle">📲 Estamos aquí para ayudarte</p>
+			<p class="hero-subtitle">Estamos aquí para ayudarte</p>
 		</div>
 	</section>
 	<hr class="separator">
@@ -58,9 +59,9 @@
 							d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
 						</path>
 					</svg>
-				</div>
-				<h3>Teléfono</h3>
-				<p><strong>81 3246 0363</strong></p>
+				</div>					<h3>Teléfono</h3>
+					<p><a href="tel:+528132460363" class="contact-link"><strong>81 3246 0363</strong></a></p>
+					<p><a href="https://wa.me/528132460363" class="whatsapp-link">Escríbenos por WhatsApp</a></p>
 				<p class="small-text">Horario: 8:00 AM - 4:00 PM</p>
 				<p class="small-text">Lunes a Viernes</p>
 			</div>
@@ -72,9 +73,8 @@
 						</path>
 						<polyline points="22,6 12,13 2,6"></polyline>
 					</svg>
-				</div>
-				<h3>Correo Electrónico</h3>
-				<p><strong>contacto@profime.org</strong></p>
+				</div>					<h3>Correo Electrónico</h3>
+					<p><a href="mailto:contacto@profime.org" class="contact-link"><strong>contacto@profime.org</strong></a></p>
 				<p class="small-text">Te responderemos en menos de 24 horas</p>
 			</div>
 		</div>

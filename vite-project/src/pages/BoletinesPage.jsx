@@ -26,11 +26,10 @@ export default function BoletinesPage() {
               Boletín PROFIME - {b.month}
             </h2>
           </div>
-          <embed
+          <iframe
             src={`/Boletinespdf/${b.file}`}
-            type="application/pdf"
-            width="100%"
-            height="800px"
+            className="boletin-embed"
+            title={`Boletín ${b.month}`}
           />
         </section>
       ))}

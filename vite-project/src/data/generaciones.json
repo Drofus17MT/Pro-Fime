@@ -9,7 +9,9 @@
     { "src": "/images/galerias_generaciones/gen_6.jpg", "alt": "Generación 6" },
     { "src": "/images/galerias_generaciones/gen_7.jpg", "alt": "Generación 7" },
     { "src": "/images/galerias_generaciones/gen_8.jpg", "alt": "Generación 8" },
-    { "src": "/images/galerias_generaciones/gen_9.jpg", "alt": "Generación 9" }
+    { "src": "/images/galerias_generaciones/gen_9.jpg", "alt": "Generación 9" },
+    { "src": "/images/galerias_generaciones/gen_10.jpg", "alt": "Generación 10" },
+    { "src": "/images/galerias_generaciones/gen_11.jpg", "alt": "Generación 11" }
   ],
   "gridColumns": 4
 }

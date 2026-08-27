@@ -16,6 +16,7 @@ import HistorialPresidentesPage from "./pages/HistorialPresidentesPage";
 import LogrosPage from "./pages/LogrosPage";
 import AlumnosBeneficiadosPage from "./pages/AlumnosBeneficiadosPage";
 import JuntasPage from "./pages/JuntasPage";
+import DarkModeToggle from "./components/DarkModeToggle";
 import "./App.css";
 
 function Layout({ children }) {
@@ -25,6 +26,7 @@ function Layout({ children }) {
       <Header />
       <main>{children}</main>
       <Footer />
+      <DarkModeToggle />
     </>
   );
 }

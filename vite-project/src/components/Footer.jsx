@@ -15,8 +15,9 @@ export default function Footer() {
           <p>Pedro de Alba SN, Niños Héroes</p>
           <p>Ciudad Universitaria, 66455</p>
           <p>San Nicolás de los Garza, N.L.</p>
-          <p style={{ marginTop: "1rem" }}>Teléfono: 81 3246-0363</p>
-          <p>contacto@profime.org</p>
+          <p style={{ marginTop: "1rem" }}>Teléfono: <a href="tel:+528132460363" className="contact-link">81 3246-0363</a></p>
+          <p><a href="https://wa.me/528132460363" className="whatsapp-link">Escríbenos por WhatsApp</a></p>
+          <p>Correo: <a href="mailto:contacto@profime.org" className="contact-link">contacto@profime.org</a></p>
         </div>
         <div className="footer-section">
           <h3>Institucional</h3>

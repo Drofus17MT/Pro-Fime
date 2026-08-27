@@ -29,10 +29,10 @@ export default function ConsejoDirectivoPage() {
     <>
       <PageHero
         title="Consejo Directivo"
-        subtitle="👨‍💼 ¡Conoce a los directivos que hacen posible la fundación PROFIME!"
+        subtitle="¡Conoce a los directivos que hacen posible la fundación PROFIME!"
       />
 
-      <div className="values-grid">
+      <div className="president-grid">
         {MIEMBROS.map((m) => (
           <div key={m.name} className="president-card">
             <div className="president-icon">

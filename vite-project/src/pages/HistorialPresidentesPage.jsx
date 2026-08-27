@@ -23,7 +23,7 @@ export default function HistorialPresidentesPage() {
             siendo los máximos responsables y líderes de la fundación, siguiendo la misión y visión por las
             que fue fundada.
           </p>
-          <div className="values-grid">
+          <div className="president-grid">
             {PRESIDENTES.map((p, i) => (
               <div key={i} className="president-card">
                 <div className="president-icon">

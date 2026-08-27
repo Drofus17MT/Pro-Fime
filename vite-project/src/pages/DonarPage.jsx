@@ -60,7 +60,7 @@ export default function DonarPage() {
     <>
       <PageHero
         title="Haz Tu Donativo"
-        subtitle="🤝 ¡Tu apoyo transforma vidas!"
+        subtitle="¡Tu apoyo transforma vidas!"
       />
       <hr className="separator" />
 
@@ -87,7 +87,7 @@ export default function DonarPage() {
 
           <div className="donation-call-to-action">
             <div className="cta-content">
-              <h3>¿Quieres ser parte del cambio? 🙌</h3>
+              <h3>¿Quieres ser parte del cambio?</h3>
               <p>
                 Tu donación, sin importar el monto, nos ayuda a continuar con nuestra misión de impulsar la
                 formación profesional y el desarrollo integral de los estudiantes y egresados de la FIME.

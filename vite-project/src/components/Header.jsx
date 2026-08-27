@@ -29,12 +29,18 @@ const NAV_ITEMS = [
   },
   {
     label: "EVENTOS",
+    to: "/eventos",
+  },
+  /*
+  {
+    label: "EVENTOS",
     href: "#eventos",
     children: [
       { label: "Eventos", to: "/eventos" },
       { label: "Juntas", to: "/juntas" },
     ],
   },
+  */
   { label: "BOLETINES", to: "/boletines" },
   {
     label: "GALERÍA",
@@ -58,13 +64,42 @@ const NAV_ITEMS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains("dark-mode"));
+  const [logoOpacity, setLogoOpacity] = useState(1);
 
   const toggleMenu = useCallback(() => setMenuOpen((v) => !v), []);
+
+  // Listen for dark mode changes from the toggle button with logo fade
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const dark = document.documentElement.classList.contains("dark-mode");
+      setLogoOpacity(0);
+      setTimeout(() => {
+        setIsDark(dark);
+        setLogoOpacity(1);
+      }, 200);
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const header = document.getElementById("header");
+    if (!header) return;
+
+    const onScroll = () => {
+      header.classList.toggle("scrolled", window.pageYOffset > 30);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleDropdown = (label) => {
     setOpenDropdown((prev) => (prev === label ? null : label));
@@ -80,9 +115,10 @@ export default function Header() {
             aria-label="Ir a la página de inicio de Fundación PROFIME"
           >
             <img
-              src="/images/logos/logo_profime.png"
+              src={isDark ? "/images/logos/logo_profime_oscuro.png" : "/images/logos/logo_profime_claro.png"}
               alt="Logo PROFIME"
               className="logo-img"
+              style={{ opacity: logoOpacity, transition: "opacity 0.4s ease" }}
               width="797"
               height="378"
             />

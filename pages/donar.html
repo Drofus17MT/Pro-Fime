@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
 	
 	<link rel="icon" type="image/png" href="../images/logos/logo_profime.png" />
 	<meta name="referrer" content="strict-origin-when-cross-origin">
@@ -19,6 +19,7 @@
 
 	<script type="module" src="../js/main.js"></script>
 
+	<script>if(localStorage.getItem("dark-mode")==="true")document.documentElement.classList.add("dark-mode")</script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
 	<section class="hero-contact">
 		<div class="hero-content">
 			<h1 class="hero-title">Haz Tu Donativo</h1>
-			<p class="hero-subtitle"><strong>🤝 ¡Tu apoyo transforma vidas!</strong></p>
+			<p class="hero-subtitle"><strong>¡Tu apoyo transforma vidas!</strong></p>
 		</div>
 	</section>
 	<hr class="separator">
@@ -101,7 +102,7 @@
 
 			<div class="donation-call-to-action">
 				<div class="cta-content">
-					<h3>¿Quieres ser parte del cambio? 🙌</h3>
+					<h3>¿Quieres ser parte del cambio?</h3>
 					<p>Tu donación, sin importar el monto, nos ayuda a continuar con nuestra misión de impulsar la
 						formación profesional y el desarrollo integral de los estudiantes y egresados de la FIME.</p>
 				</div>

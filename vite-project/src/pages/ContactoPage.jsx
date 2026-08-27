@@ -31,7 +31,8 @@ export default function ContactoPage() {
               </svg>
             </div>
             <h3>Teléfono</h3>
-            <p><strong>81 3246 0363</strong></p>
+            <p><a href="tel:+528132460363" className="contact-link"><strong>81 3246 0363</strong></a></p>
+            <p><a href="https://wa.me/528132460363" className="whatsapp-link">Escríbenos por WhatsApp</a></p>
             <p className="small-text">Horario: 8:00 AM - 4:00 PM</p>
             <p className="small-text">Lunes a Viernes</p>
           </div>
@@ -43,7 +44,7 @@ export default function ContactoPage() {
               </svg>
             </div>
             <h3>Correo Electrónico</h3>
-            <p><strong>contacto@profime.org</strong></p>
+            <p><a href="mailto:contacto@profime.org" className="contact-link"><strong>contacto@profime.org</strong></a></p>
             <p className="small-text">Te responderemos en menos de 24 horas</p>
           </div>
         </div>

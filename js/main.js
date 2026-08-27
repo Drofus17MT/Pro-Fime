@@ -113,12 +113,19 @@ function initHeaderScroll() {
   const header = document.getElementById("header");
   if (!header) return;
 
+  let ticking = false;
   const updateHeader = () => {
     header.classList.toggle("scrolled", window.pageYOffset > 30);
+    ticking = false;
   };
 
   updateHeader();
-  window.addEventListener("scroll", debounce(updateHeader, 50), { passive: true });
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
 /* =========================================================
