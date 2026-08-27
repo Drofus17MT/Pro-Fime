@@ -1,5 +1,7 @@
 "use strict";
 
+import { mountComponents } from "./components.js";
+
 /* =========================================================
    Utilidades
    ========================================================= */
@@ -362,6 +364,9 @@ function initContactForm() {
    Inicialización
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
+  // Inyectar componentes reutilizables antes de inicializar comportamientos
+  mountComponents();
+
   initSlider();
   initHeaderScroll();
   initDropdowns();

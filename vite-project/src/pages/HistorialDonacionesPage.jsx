@@ -1,0 +1,181 @@
+const GENERACIONES = [
+  { title: "Generación 1994-99 IMA, IME, IAS", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/28%20Septiembre%202024.jpeg", alt: "Generación 1994-1999" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2028%20Septiembre.png", alt: "Cheque Generación 1994-1999" },
+  ]},
+  { title: "Generación 1969-1974", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/5%20Octubre.jpeg", alt: "Generación 1969-1974" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%205%20Octubre.jpg", alt: "Cheque Generación 1969-1974" },
+  ]},
+  { title: "Generación 1999-2004", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/2%20de%20Noviembre.jpeg", alt: "Generación 1999-2004" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Entrega%20cheque%202%20Noviembre.png", alt: "Entrega Generación 1999-2004" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%202%20Noviembre.png", alt: "Cheque Generación 1999-2004" },
+  ]},
+  { title: "Generación 1989-1994", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/22%20de%20Noviembre.jpg", alt: "Generación 1989-1994" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Entrega%20cheque%2022%20Noviembre.jpg", alt: "Entrega Generación 1989-1994" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2022%20Noviembre.png", alt: "Cheque Generación 1989-1994" },
+  ]},
+  { title: "Generación 1990-1994", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/30%20de%20Noviembre.png", alt: "Generación 1990-1994" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2030%20de%20Noviembre.png", alt: "Cheque Generación 1990-1994" },
+  ]},
+  { title: "Generación 1989-1994", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/20%20de%20Diciembre.jpg", alt: "Generación 1989-1994" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Entrega%20cheque%2020%20de%20Diciembre.png", alt: "Entrega Generación 1989-1994" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2020%20de%20Diciembre.png", alt: "Cheque Generación 1989-1994" },
+  ]},
+  { title: "Generación 1970-1975", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/18%20de%20Enero.png", alt: "Generación 1970-1975" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Entrega%20cheque%2018%20Enero.png", alt: "Entrega Generación 1970-1975" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2018%20de%20Enero.png", alt: "Cheque Generación 1970-1975" },
+  ]},
+  { title: "Generación 1995-2000", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/25%20de%20Enero.png", alt: "Generación 1995-2000" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Entrega%20cheque%2025%20Enero.png", alt: "Entrega Generación 1995-2000" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2025%20Enero.png", alt: "Cheque Generación 1995-2000" },
+  ]},
+  { title: "Generación Ex-SAFIME's 80's", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/21%20de%20Junio.JPG", alt: "Generación Ex-SAFIME's 80's" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2021%20de%20Junio.jpeg", alt: "Entrega Generación Ex-SAFIME's 80's" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Entrega%20cheque%2021%20Junio.JPG", alt: "Cheque Generación Ex-SAFIME's 80's" },
+  ]},
+  { title: "Generación 2000-2005", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/28%20de%20Junio.jpg", alt: "Generación 2000-2005" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2028%20de%20Junio.png", alt: "Entrega Generación 2000-2005" },
+  ]},
+  { title: "Generación 1993-1998", images: [
+    { src: "/images/Fotos generaciones donadoras/5dejulio.png", alt: "Generación" },
+    { src: "/images/Fotos generaciones donadoras/entrega5julio.png", alt: "Entrega cheque Generación 1993-1998" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%205%20de%20Julio.png", alt: "Cheque Generación 1993-1998" },
+  ]},
+  { title: "Generación 1974-1978", images: [
+    { src: "/images/Fotos%20generaciones%20donadoras/18%20de%20Julio.png", alt: "Generación 1974-1978" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Entrega%20cheque%2018%20de%20Julio.png", alt: "Entrega Generación 1974-1978" },
+    { src: "/images/Fotos%20generaciones%20donadoras/Cheque%2018%20de%20Julio.png", alt: "Cheque Generación 1974-1978" },
+  ]},
+  { title: "Generación 1990-1995", images: [
+    { src: "/images/Fotos generaciones donadoras/1 de Agosto.jpg", alt: "Generación 1990-1995" },
+    { src: "/images/Fotos generaciones donadoras/Entrega cheque 1 de Agosto.jpg", alt: "Entrega Generación 1990-1995" },
+    { src: "/images/Fotos generaciones donadoras/Cheque 1 de Agosto.png", alt: "Cheque Generación 1990-1995" },
+  ]},
+  { title: "Generación 1991-1995", images: [
+    { src: "/images/Fotos generaciones donadoras/2 de Agosto.jpg", alt: "Generación 1991-1995" },
+    { src: "/images/Fotos generaciones donadoras/Entrega cheque 2 de Agosto.jpg", alt: "Entrega Generación 1991-1995" },
+    { src: "/images/Fotos generaciones donadoras/Cheque 2 de Agosto.png", alt: "Cheque Generación 1991-1995" },
+  ]},
+  { title: "Generación 1970-1975", images: [
+    { src: "/images/Fotos generaciones donadoras/6 de Agosto.jpg", alt: "Generación 1970-1975" },
+    { src: "/images/Fotos generaciones donadoras/Entrega cheque 6 de Agosto.jpg", alt: "Entrega Generación 1970-1975" },
+    { src: "/images/Fotos generaciones donadoras/Cheque 6 de Agosto.png", alt: "Cheque Generación 1970-1975" },
+  ]},
+  { title: "Generación Basketball", images: [
+    { src: "/images/Fotos generaciones donadoras/30 de Agosto.png", alt: "Generación Basketball" },
+    { src: "/images/Fotos generaciones donadoras/Cheque 30 de Agosto.png", alt: "Cheque Generación Basketball" },
+  ]},
+  { title: "Generación 1990-1995", images: [
+    { src: "/images/Fotos generaciones donadoras/13 de Septiembre.jpg", alt: "Generación 1990-1995" },
+    { src: "/images/Fotos generaciones donadoras/Entrega cheque 13 de Septiembre.jpg", alt: "Entrega Generación 1990-1995" },
+    { src: "/images/Fotos generaciones donadoras/Cheque 13 de Septiembre.png", alt: "Cheque Generación 1990-1995" },
+  ]},
+  { title: "Generación 1987-1991", images: [
+    { src: "/images/Fotos generaciones donadoras/24Enero2026.png", alt: "Generación 1987-1991" },
+    { src: "/images/Fotos generaciones donadoras/EntregaCheque24Enero2026.png", alt: "Entrega Generación 1987-1991" },
+    { src: "/images/Fotos generaciones donadoras/Cheque24Enero2026.png", alt: "Cheque Generación 1987-1991" },
+  ]},
+  { title: "Generación 1991 - 1995 CHOICE", images: [
+    { src: "/images/Fotos generaciones donadoras/21Febrero2026.png", alt: "Generación 1991-1995 CHOICE" },
+    { src: "/images/Fotos generaciones donadoras/EntregaCheque21Febrero2026.png", alt: "Entrega Generación 1991-1995 CHOICE" },
+    { src: "/images/Fotos generaciones donadoras/Cheque21Febrero2026.png", alt: "Cheque Generación 1991-1995 CHOICE" },
+  ]},
+  { title: "Generación OSOS Campeones 1976", images: [
+    { src: "/images/Fotos generaciones donadoras/21Marzo2026.png", alt: "Generación Osos Campeones 1976" },
+    { src: "/images/Fotos generaciones donadoras/EntregaCheque21Marzo2026.png", alt: "Entrega Generación Osos Campeones 1976" },
+    { src: "/images/Fotos generaciones donadoras/Cheque21Marzo2026.png", alt: "Cheque Generación Osos Campeones 1976" },
+  ]},
+  { title: "Generación 1985 - 1989", images: [
+    { src: "/images/Fotos generaciones donadoras/18Abril2026.JPG", alt: "Generación 1985 - 1989" },
+    { src: "/images/Fotos generaciones donadoras/Cheque18Abril2026.png", alt: "Cheque Generación 1985 - 1989" },
+  ]},
+  { title: "Generación IAS 1992 - 1996", images: [
+    { src: "/images/Fotos generaciones donadoras/25Abril2026.jpg", alt: "Generación IAS 1992 - 1996" },
+    { src: "/images/Fotos generaciones donadoras/EntregaCheque25Abril2026.jpg", alt: "Entrega Generación IAS 1992 - 1996" },
+    { src: "/images/Fotos generaciones donadoras/Cheque25Abril2026.png", alt: "Cheque Generación IAS 1992 - 1996" },
+  ]},
+  { title: "Generación 1971 - 1976", images: [
+    { src: "/images/Fotos generaciones donadoras/4Junio2026.JPG", alt: "Generación 1971 - 1976" },
+    { src: "/images/Fotos generaciones donadoras/EntregaCheque4Junio2026.JPG", alt: "Entrega Generación 1971 - 1976" },
+    { src: "/images/Fotos generaciones donadoras/Cheque4Junio2026.png", alt: "Cheque Generación 1971 - 1976" },
+  ]},
+  { title: 'Generación 1971 - 1976 "Amigos Incomparables"', images: [
+    { src: "/images/Fotos generaciones donadoras/5Junio2026.jpg", alt: "Generación 1971 - 1976 'Amigos Incomparables'" },
+    { src: "/images/Fotos generaciones donadoras/EntregaCheque5Junio2026.JPG", alt: "Entrega Generación 1971 - 1976 'Amigos Incomparables'" },
+    { src: "/images/Fotos generaciones donadoras/Cheque5Junio2026.png", alt: "Cheque Generación 1971 - 1976 'Amigos Incomparables'" },
+  ]},
+  { title: "Generación 1964 - 1969", images: [
+    { src: "/images/Fotos generaciones donadoras/19Junio2026.JPG", alt: "Generación 1964 - 1969" },
+    { src: "/images/Fotos generaciones donadoras/EntregaCheque19Junio2026.jpg", alt: "Entrega Generación 1964 - 1969" },
+    { src: "/images/Fotos generaciones donadoras/Cheque19Junio2026.png", alt: "Cheque Generación 1964 - 1969" },
+  ]},
+];
+
+export default function HistorialDonacionesPage() {
+  return (
+    <>
+      <section style={{ background: "var(--gris-claro)", padding: "50px 1rem" }}>
+        <div style={{ maxWidth: 1200, margin: "auto" }}>
+          <h2
+            style={{
+              textAlign: "center",
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "2.8rem",
+              color: "var(--verde-fime)",
+              marginBottom: "1rem",
+              marginTop: "6rem",
+              fontWeight: 700,
+            }}
+          >
+            Historial de Donaciones
+          </h2>
+          <p className="section-subtitle">
+            La fundación PROFIME agradece a todos los miembros de las generaciones egresada de la Facultad
+            de Ingeniería Mecánica y Eléctrica que, por medio de un donativo voluntario, fruto de su esfuerzo
+            y dedicación a su profesión, han contribuido al desarrollo integral de los futuros ingenieros,
+            siendo utilizado este donativo en las becas de movilidad académica otorgadas a nuestros
+            estudiantes. A manera de agradecimiento, listamos a las generaciones contribuyentes y damos fe
+            de su empático y valioso apoyo.
+          </p>
+          <hr className="separator-line" />
+        </div>
+      </section>
+
+      {GENERACIONES.map((gen, i) => (
+        <section key={i} style={{ padding: "30px 1rem" }}>
+          <div>
+            <h2
+              style={{
+                textAlign: "center",
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "2rem",
+                color: "var(--verde-fime)",
+                marginBottom: "1rem",
+                fontWeight: 700,
+              }}
+            >
+              {gen.title}
+            </h2>
+          </div>
+          <div className="contenedor-imagenes">
+            {gen.images.map((img, j) => (
+              <img key={j} src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <hr className="separator-line" />
+      <hr className="separator" />
+    </>
+  );
+}
